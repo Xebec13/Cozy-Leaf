@@ -1,0 +1,158 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
+@import "tailwindcss";
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+@layer utilities {
+  /* === Seashell === */
+  .bg-seashell {
+    background-color: hsla(16, 33%, 91%, 1);
+  }
+  .bg-seashell-80 {
+    background-color: hsla(16, 33%, 91%, 0.8);
+  }
+  .bg-seashell-60 {
+    background-color: hsla(16, 33%, 91%, 0.6);
+  }
+  .bg-seashell-40 {
+    background-color: hsla(16, 33%, 91%, 0.4);
+  }
+
+  .text-seashell {
+    color: hsla(16, 33%, 91%, 1);
+  }
+  .text-seashell-80 {
+    color: hsla(16, 33%, 91%, 0.8);
+  }
+  .text-seashell-60 {
+    color: hsla(16, 33%, 91%, 0.6);
+  }
+  .text-seashell-40 {
+    color: hsla(16, 33%, 91%, 0.4);
+  }
+
+  /* === Thulian Pink === */
+  .bg-thulian {
+    background-color: hsla(333, 78%, 67%, 1);
+  }
+  .bg-thulian-80 {
+    background-color: hsla(333, 78%, 67%, 0.8);
+  }
+  .bg-thulian-60 {
+    background-color: hsla(333, 78%, 67%, 0.6);
+  }
+  .bg-thulian-40 {
+    background-color: hsla(333, 78%, 67%, 0.4);
+  }
+
+  .text-thulian {
+    color: hsla(333, 78%, 67%, 1);
+  }
+  .text-thulian-80 {
+    color: hsla(333, 78%, 67%, 0.8);
+  }
+  .text-thulian-60 {
+    color: hsla(333, 78%, 67%, 0.6);
+  }
+  .text-thulian-40 {
+    color: hsla(333, 78%, 67%, 0.4);
+  }
+
+  /* === Shocking Pink === */
+  .bg-shocking {
+    background-color: hsla(318, 75%, 56%, 1);
+  }
+  .bg-shocking-80 {
+    background-color: hsla(318, 75%, 56%, 0.8);
+  }
+  .bg-shocking-60 {
+    background-color: hsla(318, 75%, 56%, 0.6);
+  }
+  .bg-shocking-40 {
+    background-color: hsla(318, 75%, 56%, 0.4);
+  }
+
+  .text-shocking {
+    color: hsla(318, 75%, 56%, 1);
+  }
+  .text-shocking-80 {
+    color: hsla(318, 75%, 56%, 0.8);
+  }
+  .text-shocking-60 {
+    color: hsla(318, 75%, 56%, 0.6);
+  }
+  .text-shocking-40 {
+    color: hsla(318, 75%, 56%, 0.4);
+  }
+
+  /* === Carolina Blue === */
+  .bg-carolina {
+    background-color: hsla(203, 50%, 62%, 1);
+  }
+  .bg-carolina-80 {
+    background-color: hsla(203, 50%, 62%, 0.8);
+  }
+  .bg-carolina-60 {
+    background-color: hsla(203, 50%, 62%, 0.6);
+  }
+  .bg-carolina-40 {
+    background-color: hsla(203, 50%, 62%, 0.4);
+  }
+
+  .text-carolina {
+    color: hsla(203, 50%, 62%, 1);
+  }
+  .text-carolina-80 {
+    color: hsla(203, 50%, 62%, 0.8);
+  }
+  .text-carolina-60 {
+    color: hsla(203, 50%, 62%, 0.6);
+  }
+  .text-carolina-40 {
+    color: hsla(203, 50%, 62%, 0.4);
+  }
+
+  /* === Viridian === */
+  .bg-viridian {
+    background-color: hsla(167, 35%, 38%, 1);
+  }
+  .bg-viridian-80 {
+    background-color: hsla(167, 35%, 38%, 0.8);
+  }
+  .bg-viridian-60 {
+    background-color: hsla(167, 35%, 38%, 0.6);
+  }
+  .bg-viridian-40 {
+    background-color: hsla(167, 35%, 38%, 0.4);
+  }
+
+  .text-viridian {
+    color: hsla(167, 35%, 38%, 1);
+  }
+  .text-viridian-80 {
+    color: hsla(167, 35%, 38%, 0.8);
+  }
+  .text-viridian-60 {
+    color: hsla(167, 35%, 38%, 0.6);
+  }
+  .text-viridian-40 {
+    color: hsla(167, 35%, 38%, 0.4);
+  }
+}
+
+@keyframes wind {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-wind {
+  animation: wind 4s ease-in-out infinite;
+  transform-origin: center bottom; /* punkt obrotu = łodyga liścia */
+}

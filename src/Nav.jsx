@@ -1,4 +1,5 @@
-import SakuraPetals from './styles/SakuraPetals'
+import { Link } from "react-router-dom";
+import SakuraPetals from "./styles/SakuraPetals";
 import LeafIcon from "./styles/LeafIcon";
 
 const Nav = () => {
@@ -21,8 +22,13 @@ const Nav = () => {
         <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center col-span-2 row-span-2 bg-thulian cursor-pointer">
           Menu
         </li>
-        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center bg-thulian-40 cursor-pointer ">
-          Events
+        <li className="nav-hover bg-thulian-40">
+          <Link
+            to="/events"
+            className="w-full h-full flex justify-center items-center text-softblack text-[3rem] md:text-fluid font-semibold italic"
+          >
+            Events
+          </Link>
         </li>
         <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center bg-thulian-60 cursor-pointer">
           Promo

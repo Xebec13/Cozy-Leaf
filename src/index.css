@@ -6,7 +6,7 @@ body {
 }
 
 @layer utilities {
-  /* === Seashell === */
+  /* 👇 kolory */
   .bg-seashell {
     background-color: hsla(16, 33%, 91%, 1);
   }
@@ -140,19 +140,41 @@ body {
   .text-viridian-40 {
     color: hsla(167, 35%, 38%, 0.4);
   }
-}
-
-@keyframes wind {
-  0%,
-  100% {
-    transform: rotate(-3deg);
-  }
-  50% {
-    transform: rotate(3deg);
+  .text-softblack {
+    color: #333;
   }
 }
+/* 👇 animacje i hover  */
+@layer utilities {
+  @keyframes wind {
+    0%,
+    100% {
+      transform: rotate(-12deg);
+    }
+    50% {
+      transform: rotate(6deg);
+    }
+  }
+  .animate-wind {
+    animation: wind 4s ease-in-out infinite;
+    transform-origin: center bottom;
+  }
+  .nav-hover {
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  }
 
-.animate-wind {
-  animation: wind 4s ease-in-out infinite;
-  transform-origin: center bottom; /* punkt obrotu = łodyga liścia */
+  .nav-hover:hover {
+    
+    filter: brightness(1.15);
+  }
+}
+
+/* 👇 typografia */
+@layer utilities {
+  .text-fluid {
+    font-size: clamp(2.5rem, 4rem, 5vw);
+  }
+  .h1-fluid {
+    font-size: clamp(3.5rem, 4rem, 6vw);
+  }
 }

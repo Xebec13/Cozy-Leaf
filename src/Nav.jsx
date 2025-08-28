@@ -1,34 +1,42 @@
+import SakuraPetals from './styles/SakuraPetals'
+import LeafIcon from "./styles/LeafIcon";
+
 const Nav = () => {
   return (
-    <nav className="h-screen p-15">
-      <ul className="grid grid-cols-[2fr_2fr_2fr_2fr_0.5fr] grid-rows-5 w-full h-full">
-        <li className="col-span-2 row-span-2 bg-viridian ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-16 h-16 text-thulian animate-wind"
-          >
-            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
-            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-          </svg>
-          <h1>Cozy Leaft</h1>
-          <p>Vegan Restaurant</p>
+    <nav className="h-full md:h-screen bg-viridian p-5 md:p-15">
+      <ul className="block md:grid md:grid-cols-[2fr_2fr_2fr_2fr_0.5fr] md:grid-rows-5 w-full h-full">
+        <div className="nav-hover relative col-span-2 row-span-2 flex flex-col justify-center items-center text-seashell overflow-hidden cursor-pointer">
+          <SakuraPetals petalCount={50} />
+          <LeafIcon className="relative z-10 size-16 md:size-1/3 text-thulian animate-wind" />
+          <h1 className="h1-fluid font-extrabold whitespace-nowrap relative z-10">
+            Cozy Leaf
+          </h1>
+          <p className="text-xl md:text-2xl text-thulian relative z-10">
+            Vegan Restaurant
+          </p>
+        </div>
+        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center col-span-2 bg-carolina cursor-pointer">
+          Gallery
         </li>
-        <li className="col-span-2 bg-carolina">Gallery</li>
-        <li className="col-span-2 row-span-2 bg-thulian">Menu</li>
-        <li className="bg-thulian-40 ">Events</li>
-        <li className="bg-viridian-40">Promotions</li>
-        <li className="col-span-4 bg-seashell">Order Now</li>
-        <li className="col-span-3 border-1 border-black bg-carolina-60">
+        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center col-span-2 row-span-2 bg-thulian cursor-pointer">
+          Menu
+        </li>
+        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center bg-thulian-40 cursor-pointer ">
+          Events
+        </li>
+        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center bg-thulian-60 cursor-pointer">
+          Promo
+        </li>
+        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center col-span-4 bg-seashell cursor-pointer">
+          Order
+        </li>
+        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center col-span-3 bg-carolina-60 cursor-pointer">
           Reservation
         </li>
-        <li className=" bg-shocking-40">About Us</li>
-        <li className="col-start-5 row-start-1 row-span-5 bg-thulian-80">
+        <li className="nav-hover text-[3rem] md:text-fluid-desktop font-semibold p-1 italic flex justify-center items-center bg-shocking-40 cursor-pointer">
+          About
+        </li>
+        <li className="nav-hover italic flex justify-center items-center col-start-5 row-start-1 row-span-5 bg-thulian-80 cursor-pointer">
           Contact
         </li>
       </ul>

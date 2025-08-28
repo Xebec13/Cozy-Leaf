@@ -1,50 +1,41 @@
-import { Link } from "react-router-dom";
 import SakuraPetals from "./styles/SakuraPetals";
 import LeafIcon from "./styles/LeafIcon";
 
+import EventsTile from "./tiles/EventTile";
+import GalleryTile from "./tiles/GalleryTile";
+import MenuTile from "./tiles/MenuTile";
+import PromoTile from "./tiles/PromoTile";
+import OrderTile from "./tiles/OrderTile";
+import ReservationTile from "./tiles/ReservationTile";
+import AboutTile from "./tiles/AboutTile";
+import ContactTile from "./tiles/ContactTile";
+
 const Nav = () => {
   return (
-    <nav className="h-full md:h-screen bg-viridian p-5 md:p-15">
-      <ul className="block md:grid md:grid-cols-[2fr_2fr_2fr_2fr_0.5fr] md:grid-rows-5 w-full h-full">
-        <div className="nav-hover relative col-span-2 row-span-2 flex flex-col justify-center items-center text-seashell overflow-hidden cursor-pointer">
+    <nav className="h-full bg-viridian p-5 md:p-15">
+      <ul className="block md:grid md:grid-cols-[2fr_2fr_2fr_2fr_0.5fr] md:grid-rows-5 w-full h-full uppercase text-seashell">
+        
+        {/* Logo */}
+        <div className="tile-hover p-5 relative col-span-2 row-span-2 flex flex-col justify-center items-center text-seashell overflow-hidden">
           <SakuraPetals petalCount={50} />
           <LeafIcon className="relative z-10 size-16 md:size-1/3 text-thulian animate-wind" />
           <h1 className="h1-fluid font-extrabold whitespace-nowrap relative z-10">
             Cozy Leaf
           </h1>
-          <p className="text-xl md:text-2xl text-thulian relative z-10">
+          <p className="text-xl md:text-2xl font-bold text-thulian relative z-10">
             Vegan Restaurant
           </p>
         </div>
-        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center col-span-2 bg-carolina cursor-pointer">
-          Gallery
-        </li>
-        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center col-span-2 row-span-2 bg-thulian cursor-pointer">
-          Menu
-        </li>
-        <li className="nav-hover bg-thulian-40">
-          <Link
-            to="/events"
-            className="w-full h-full flex justify-center items-center text-softblack text-[3rem] md:text-fluid font-semibold italic"
-          >
-            Events
-          </Link>
-        </li>
-        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center bg-thulian-60 cursor-pointer">
-          Promo
-        </li>
-        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center col-span-4 bg-seashell cursor-pointer">
-          Order
-        </li>
-        <li className="nav-hover text-softblack text-[3rem] md:text-fluid font-semibold p-1 italic flex justify-center items-center col-span-3 bg-carolina-60 cursor-pointer">
-          Reservation
-        </li>
-        <li className="nav-hover text-[3rem] md:text-fluid-desktop font-semibold p-1 italic flex justify-center items-center bg-shocking-40 cursor-pointer">
-          About
-        </li>
-        <li className="nav-hover italic flex justify-center items-center col-start-5 row-start-1 row-span-5 bg-thulian-80 cursor-pointer">
-          Contact
-        </li>
+
+        {/* Tiles */}
+        <GalleryTile />
+        <MenuTile />
+        <EventsTile />
+        <PromoTile />
+        <OrderTile />
+        <ReservationTile />
+        <AboutTile />
+        <ContactTile />
       </ul>
     </nav>
   );

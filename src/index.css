@@ -159,14 +159,11 @@ body {
     animation: wind 4s ease-in-out infinite;
     transform-origin: center bottom;
   }
-  .nav-hover {
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  .tile-hover:hover {
+    filter: brightness(1.1);
+    transform: scale(1.001);
   }
-
-  .nav-hover:hover {
-    
-    filter: brightness(1.15);
-  }
+  
 }
 
 /* 👇 typografia */

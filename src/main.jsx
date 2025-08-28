@@ -1,9 +1,17 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
+
 import App from "./App";
 import EventPage from "./pages/EventPage";
-import "./index.css"
+import GalleryPage from "./pages/GalleryPage";
+import MenuPage from "./pages/MenuPage";
+import PromoPage from "./pages/PromoPage";
+import OrderPage from "./pages/OrderPage";
+import ReservationPage from "./pages/ReservationPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +20,35 @@ const router = createBrowserRouter([
   },
   {
     path: "/events",
-    Component: EventPage, // 👈 podstrona
+    Component: EventPage,
+  },
+  {
+    path: "/gallery",
+    Component: GalleryPage,
+  },
+  {
+    path: "/menu",
+    Component: MenuPage,
+  },
+  {
+    path: "/promo",
+    Component: PromoPage,
+  },
+  {
+    path: "/order",
+    Component: OrderPage,
+  },
+  {
+    path: "/reservation",
+    Component: ReservationPage,
+  },
+  {
+    path: "/about",
+    Component: AboutPage,
+  },
+  {
+    path: "/contact",
+    Component: ContactPage,
   },
 ]);
 

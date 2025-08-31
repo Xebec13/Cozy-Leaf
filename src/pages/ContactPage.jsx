@@ -6,6 +6,8 @@ import contactImage from "../assets/cl-restaurant-contact.png";
 import contactImage2 from "../assets/cl-restaurant-contact2.png";
 import contactImage3 from "../assets/cl-restaurant-contact3.png";
 
+import NavPage from '../components/NavPage'
+
 import {
   FaInstagramSquare,
   FaFacebookSquare,
@@ -50,6 +52,7 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-thulian-80 p-10 flex flex-col justify-center items-center md:items-start md:flex-row gap-10 text-softblack">
+      <NavPage overlayClassName="bg-viridian text-seashell" />
       {/* Left column – Opening Hours */}
       <div
         ref={leftRef}

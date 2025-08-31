@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const AboutTile = () => {
   return (
-    <li className="tile-hover bg-shocking-40">
+    <li className="tile-hover bg-shocking-40 p-5">
       <Link
         to="/about"
-        className="w-full h-full flex justify-center items-center text-seashell text-[3rem] md:text-fluid font-semibold italic"
+        className="w-full h-full flex justify-center items-center text-seashell text-fluid font-semibold italic"
       >
         About
       </Link>

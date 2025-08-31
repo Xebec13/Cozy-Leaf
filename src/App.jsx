@@ -1,4 +1,6 @@
 import Nav from "./Nav";
+import "./index.css"
+
 function App() {
   return (
     <>

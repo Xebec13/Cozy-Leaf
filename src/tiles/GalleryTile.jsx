@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const GalleryTile = () => {
   return (
-    <li className="tile-hover col-span-2 bg-carolina">
+    <li className="tile-hover col-span-2 bg-carolina p-5">
       <Link
         to="/gallery"
-        className="w-full h-full flex justify-center items-center text-seashell text-[3rem] md:text-fluid font-semibold italic"
+        className="w-full h-full flex justify-center items-center text-seashell text-fluid font-semibold italic"
       >
         Gallery
       </Link>

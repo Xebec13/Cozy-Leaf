@@ -2,14 +2,16 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
 import App from "./App";
-import EventPage from "./pages/EventPage";
-import GalleryPage from "./pages/GalleryPage";
-import MenuPage from "./pages/MenuPage";
-import PromoPage from "./pages/PromoPage";
-import OrderPage from "./pages/OrderPage";
-import ReservationPage from "./pages/ReservationPage";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
+import {
+  EventPage,
+  GalleryPage,
+  MenuPage,
+  PromoPage,
+  OrderPage,
+  ReservationPage,
+  AboutPage,
+  ContactPage,
+} from "./pages";
 
 import "./index.css";
 

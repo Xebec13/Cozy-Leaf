@@ -6,6 +6,13 @@ import contactImage from "../assets/cl-restaurant-contact.png";
 import contactImage2 from "../assets/cl-restaurant-contact2.png";
 import contactImage3 from "../assets/cl-restaurant-contact3.png";
 
+import {
+  FaInstagramSquare,
+  FaFacebookSquare,
+  FaTiktok,
+  FaGoogle,
+} from "react-icons/fa";
+
 gsap.registerPlugin(useGSAP);
 
 const ContactPage = () => {
@@ -15,9 +22,15 @@ const ContactPage = () => {
   useGSAP(() => {
     // animacja lewej kolumny
     gsap.fromTo(
-      leftRef.current,
+      leftRef.current.children, // wszystkie dzieci w leftRef
       { x: -100, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, ease: "power3.out" }
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.2, // każdy element w odstępie 0.2s
+      }
     );
 
     // animacja zdjęć
@@ -50,12 +63,11 @@ const ContactPage = () => {
         <p className="text-l">690 654 666</p>
 
         {/* Social Media */}
-        <div className="flex justify-center items-center gap-10 text-xl mt-4">
-          <span>🌐</span>
-          <span>📘</span>
-          <span>📸</span>
-          <span>🎵</span>
-          <span>▶️</span>
+        <div className="flex justify-center items-center gap-8 text-3xl mt-6 text-viridian">
+          <FaInstagramSquare className="transition-transform duration-300 cursor-pointer hover:scale-110" />
+          <FaFacebookSquare className="transition-transform duration-300 cursor-pointer hover:scale-110" />
+          <FaTiktok className="transition-transform duration-300 cursor-pointer hover:scale-110" />
+          <FaGoogle className="transition-transform duration-300 cursor-pointer hover:scale-110" />
         </div>
       </div>
 

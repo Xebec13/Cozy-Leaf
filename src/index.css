@@ -144,6 +144,9 @@ body {
   .text-softblack {
     color: #333;
   }
+  .bg-softblack {
+    background-color: #333;
+  }
 }
 /* 👇 animacje i hover  */
 @layer utilities {
@@ -168,7 +171,7 @@ body {
 
   .tile-hover:hover {
     filter: brightness(1.1);
-    transform: scale(1.001);
+    transform: scale(1.02);
   }
 }
 

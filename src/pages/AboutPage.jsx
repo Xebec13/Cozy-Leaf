@@ -101,7 +101,7 @@ const AboutPage = () => {
     <section className="min-h-screen text-seashell ">
       <NavPage
         iconColor="text-seashell"
-        overlayClassName="bg-carolina text-seashell"
+        overlayClassName="bg-viridian text-seashell"
       />
 
       {/* Section 1 */}
@@ -162,7 +162,7 @@ const AboutPage = () => {
             className="absolute inset-0 "
             style={{
               backgroundImage:
-                "linear-gradient(180deg, hsla(25,35%,30%,1) 0%,hsla(25,35%,85%,0.25) 30%,hsla(25,35%,85%,0.25) 60%, hsla(25,35%,30%,1) 100%",
+                "linear-gradient(180deg, hsla(25,35%,30%,1) 0%,hsla(25,35%,85%,0.3) 30%,hsla(25,35%,85%,0.25) 60%, hsla(25,35%,30%,1) 100%",
             }}
           ></div>
 

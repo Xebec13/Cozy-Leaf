@@ -27,7 +27,7 @@ const ContactTile = () => {
   return (
     <li
       ref={tileRef}
-      className="tile-hover col-start-5 row-start-1 row-span-5 bg-thulian-80 p-5"
+      className="tile-hover col-start-5 row-start-1 row-span-5 bg-thulian p-5"
     >
       <Link to="/contact" className="w-full h-full relative block md:my-10">
         <div

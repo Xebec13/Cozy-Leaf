@@ -51,22 +51,22 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-thulian-80 p-10 flex flex-col justify-center items-center md:items-start md:flex-row gap-10 text-softblack">
-      <NavPage overlayClassName="bg-viridian text-seashell" />
-      {/* Left column – Opening Hours */}
+    <section className="min-h-screen bg-thulian-80 p-5 md:p-15 flex flex-col justify-center items-center md:items-start md:flex-row gap-10 text-softblack">
+      <NavPage iconColor="text-seashell" overlayClassName="bg-seashell text-softblack" />
+      {/* Left column – Contact Info */}
       <div
         ref={leftRef}
-        className="w-full md:w-1/2 text-center p-2 md:sticky md:top-1/3 md:left-0"
+        className="w-full md:w-1/2 md:sticky md:top-1/3 md:left-0 mt-15 text-center md:text-left"
       >
-        <h2 className="text-fluid font-bold mb-4">Opening Hours</h2>
-        <p className="text-l">Monday – Wednesday: 12:00 PM – 12:00 AM</p>
-        <p className="text-l">Thursday – Friday: 12:00 PM – 01:00 AM</p>
-        <p className="text-l">Weekend: 12:00 PM – 02:00 AM</p>
-        <p className="text-l">contact@cozy-leaf.eu</p>
-        <p className="text-l">690 654 666</p>
+        <h2 className="h2-fluid font-bold mb-4">Visit us, call us. We’re just a step away!</h2>
+        <p className="text-l ml-1">Monday – Wednesday: 12:00 PM – 12:00 AM</p>
+        <p className="text-l ml-1">Thursday – Friday: 12:00 PM – 01:00 AM</p>
+        <p className="text-l ml-1">Weekend: 12:00 PM – 02:00 AM</p>
+        <p className="text-l ml-1">contact@cozy-leaf.eu</p>
+        <p className="text-l ml-1">690 654 666</p>
 
         {/* Social Media */}
-        <div className="flex justify-center items-center gap-8 text-3xl mt-6 text-viridian">
+        <div className="flex justify-center md:justify-start items-center gap-5 text-3xl mt-5 ml-1 text-seashell">
           <FaInstagramSquare className="transition-transform duration-300 cursor-pointer hover:scale-110" />
           <FaFacebookSquare className="transition-transform duration-300 cursor-pointer hover:scale-110" />
           <FaTiktok className="transition-transform duration-300 cursor-pointer hover:scale-110" />
@@ -88,7 +88,7 @@ const ContactPage = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

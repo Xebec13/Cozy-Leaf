@@ -2,15 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-const NavPage = ({ buttonClassName = "text-viridian", overlayClassName = "bg-viridian text-seashell" }) => {
+const NavPage = ({ iconColor = "text-white", overlayClassName = "bg-black text-white" }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-6 left-6 z-50">
+    <nav className="fixed top-4 left-4 z-50">
       {/* Ikona hamburgera */}
       {!isOpen && (
         <button
-          className={`flex items-center justify-center w-10 h-10 text-3xl cursor-pointer ${buttonClassName}`}
+          className={`flex items-center justify-center w-10 h-10 text-3xl cursor-pointer ${iconColor}`}
           onClick={() => setIsOpen(true)}
         >
           <FaBars />
@@ -19,13 +19,13 @@ const NavPage = ({ buttonClassName = "text-viridian", overlayClassName = "bg-vir
 
       {/* Overlay */}
       <div
-        className={`fixed inset-0 w-full h-screen flex flex-col justify-center items-center gap-8 text-2xl font-semibold transform transition-transform duration-600 ease-in-out ${overlayClassName} ${
+        className={`fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center gap-8 text-2xl font-semibold transform transition-transform duration-600 ease-in-out ${overlayClassName} ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Krzyżyk w overlay */}
         <button
-          className="absolute top-6 left-6 text-4xl cursor-pointer"
+          className="absolute top-4 left-4 text-4xl cursor-pointer"
           onClick={() => setIsOpen(false)}
         >
           <FaTimes />

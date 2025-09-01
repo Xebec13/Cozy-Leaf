@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import LeafIcon from "./LeafIcon"; // upewnij się że ścieżka jest poprawna
 import "./sakurapetals.css";
 
-const SakuraPetals = ({ petalCount = 30 }) => {
+const SakuraPetals = ({ petalCount = 30, color1 = "text-black", color2 = "text-white" }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -34,8 +34,8 @@ const SakuraPetals = ({ petalCount = 30 }) => {
   return (
     <div id="petals-container" ref={containerRef}>
       {Array.from({ length: petalCount }).map((_, index) => {
-        // naprzemiennie thulian / shocking
-        const colorClass = index % 2 === 0 ? "text-thulian" : "text-carolina";
+        // naprzemiennie używamy color1 i color2
+        const colorClass = index % 2 === 0 ? color1 : color2;
         return (
           <div key={index} className="petal">
             <div className="rotate">

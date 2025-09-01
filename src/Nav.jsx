@@ -14,11 +14,12 @@ import {
 
 const Nav = () => {
   return (
-    <nav className="h-full bg-viridian p-5 md:p-15">
+    <nav className="h-[150dvh] bg-transparent p-5 md:p-15">
+      <SakuraPetals petalCount={40} color1="text-thulian" color2="text-carolina" />
       <ul className="block md:grid md:grid-cols-[2fr_2fr_2fr_2fr_0.5fr] md:grid-rows-5 w-full h-full uppercase text-seashell">
         {/* Logo */}
         <div className="tile-hover p-5 relative col-span-2 row-span-2 flex flex-col justify-center items-center text-seashell overflow-hidden">
-          <SakuraPetals petalCount={50} />
+          
           <LeafIcon className="relative z-10 size-16 md:size-1/3 text-thulian animate-wind" />
           <h1 className="h1-fluid font-extrabold whitespace-nowrap relative z-10">
             Cozy Leaf

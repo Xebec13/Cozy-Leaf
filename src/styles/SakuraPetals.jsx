@@ -32,7 +32,7 @@ const SakuraPetals = ({ petalCount = 30, color1 = "text-black", color2 = "text-w
   }, [petalCount]);
 
   return (
-    <div id="petals-container" ref={containerRef}>
+    <div className="overflow-hidden" id="petals-container" ref={containerRef}>
       {Array.from({ length: petalCount }).map((_, index) => {
         // naprzemiennie używamy color1 i color2
         const colorClass = index % 2 === 0 ? color1 : color2;

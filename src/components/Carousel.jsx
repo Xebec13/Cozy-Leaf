@@ -23,32 +23,38 @@ const Carousel = ({ images }) => {
     <div className="relative w-full h-full overflow-hidden rounded-xl shadow-xl">
       {/* Slides */}
       {images.map((src, index) => (
-        <img
+        <div
           key={index}
-          src={src}
-          alt={`slide-${index}`}
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+          className={`absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out ${
             index === slide ? "opacity-100" : "opacity-0"
           }`}
-        />
+        >
+          <img
+            src={src}
+            alt={`slide-${index}`}
+            className="w-full h-full object-cover"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/30" />
+        </div>
       ))}
 
       {/* Controls */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 -translate-y-1/2 text-shocking p-2 rounded-full hover:text-thulian transition cursor-pointer"
+        className="absolute top-1/2 left-4 -translate-y-1/2 text-shocking p-2 rounded-full hover:text-thulian transition cursor-pointer z-10"
       >
         <FaChevronLeft />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 text-shocking p-2 rounded-full hover:text-thulian transition cursor-pointer"
+        className="absolute top-1/2 right-4 -translate-y-1/2 text-shocking p-2 rounded-full hover:text-thulian transition cursor-pointer z-10"
       >
         <FaChevronRight />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-4 w-full flex justify-center gap-2">
+      <div className="absolute bottom-4 w-full flex justify-center gap-2 z-10">
         {images.map((_, i) => (
           <div
             key={i}

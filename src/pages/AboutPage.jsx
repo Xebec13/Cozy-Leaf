@@ -79,6 +79,24 @@ const AboutPage = () => {
       );
     });
   }, []);
+  // Carousel scroll animation
+  useGSAP(() => {
+    gsap.fromTo(
+      ".carousel-container",
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".carousel-container",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
   return (
     <section className="min-h-screen text-seashell ">
       <NavPage
@@ -98,10 +116,12 @@ const AboutPage = () => {
         </h2>
         <FaArrowDown className="intro-line text-2xl animate-bounce" />
       </div>
+
+
       {/* Section 2+3 wrapper */}
-      <div className="relative">
+      <div className="h-auto relative">
         {/* Section 2 - Farm Parallax */}
-        <div className="parallaxSection h-screen md:h-[150vh] relative overflow-hidden p-5 md:p-15">
+        <div className="parallaxSection min-h-screen md:h-[150vh] flex flex-col justify-center items-center relative overflow-hidden p-5 md:p-15">
           {/* Background */}
           <div
             className="bg absolute inset-0 w-full h-full bg-center bg-cover"
@@ -110,7 +130,7 @@ const AboutPage = () => {
 
           {/* Gradient overlay */}
           <div
-            className="absolute inset-0 backdrop-blur-xs"
+            className="absolute inset-0 "
             style={{
               backgroundImage:
                 "linear-gradient(180deg, hsla(203,50%,62%,1) 0%, hsla(203,50%,62%,0.3) 30%, hsla(25,35%,85%,0.25) 60%, hsla(25,35%,30%,1) 100%)",
@@ -122,7 +142,7 @@ const AboutPage = () => {
             <h2 className="story-line h2-fluid font-extrabold mb-6 text-shadow-lg">
               Simple vision
             </h2>
-            <p className="story-line text-lg md:text-2xl text-shadow-lg">
+            <p className="story-line text-lg font-bold md:text-2xl text-shadow-lg">
               to bring vibrant, plant-based flavors from local fields straight
               to your table.
             </p>
@@ -130,7 +150,7 @@ const AboutPage = () => {
         </div>
 
         {/* Section 3 - Kitchen Parallax */}
-        <div className="parallaxSection h-screen md:h-[150vh] relative overflow-hidden p-5 md:p-15">
+        <div className="parallaxSection min-h-screen md:h-[150vh] flex flex-col justify-center items-center relative overflow-hidden p-5 md:p-15">
           {/* Background */}
           <div
             className="bg absolute inset-0 w-full h-full bg-center bg-cover"
@@ -139,10 +159,10 @@ const AboutPage = () => {
 
           {/* Gradient overlay */}
           <div
-            className="absolute inset-0 backdrop-blur-xs"
+            className="absolute inset-0 "
             style={{
               backgroundImage:
-                "linear-gradient(180deg, hsla(25,35%,30%,1) 0%,hsla(25,35%,30%,0.3) 20%,hsla(25,35%,85%,0.25) 60%, hsla(25,35%,30%,1) 100%",
+                "linear-gradient(180deg, hsla(25,35%,30%,1) 0%,hsla(25,35%,85%,0.25) 30%,hsla(25,35%,85%,0.25) 60%, hsla(25,35%,30%,1) 100%",
             }}
           ></div>
 
@@ -151,7 +171,7 @@ const AboutPage = () => {
             <h2 className="story-line h2-fluid font-extrabold mb-6 text-shadow-lg">
               Crafted with care
             </h2>
-            <p className="story-line text-lg md:text-2xl text-shadow-lg">
+            <p className="story-line text-lg font-bold md:text-2xl text-shadow-lg">
               Every ingredient reflects our passion — from the farm, through the
               heart of our kitchen, to...
             </p>
@@ -159,14 +179,14 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* Section 3 */}
-      <div className=" h-screen bg-[hsla(25,35%,30%,1)] flex flex-col-reverse md:flex-row gap-10 p-5 md:p-15">
-        <div className="w-full h-full md:w-1/2 ">
+      {/* Section 4 */}
+      <div className="h-screen bg-[hsla(25,35%,30%,1)] flex justify-center items-center flex-col-reverse md:flex-row gap-10 p-10 md:p-15">
+        <div className="carousel-container w-full h-3/4 md:h-full md:w-1/2 ">
           <Carousel images={sliderImages} />
         </div>
         {/* Left column (text) */}
-        <div className=" text-right self-start md:sticky top-1/3 w-full md:w-1/2">
-          <h2 className="h2-fluid font-extrabold mb-2">Your Plate</h2>
+        <div className=" text-right self-start md:sticky top-1/2 w-full md:w-1/2">
+          <h2 className="h2-fluid font-extrabold mb-2">Your plate</h2>
           <p className="text-l md:text-2xl">
             Every leaf and grain finds its place in dishes crafted with love.
           </p>

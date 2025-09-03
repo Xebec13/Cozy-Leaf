@@ -32,7 +32,7 @@ const ContactTile = () => {
       <Link to="/contact" className="w-full h-full relative block md:my-10">
         <div
           ref={textRef}
-          className="text-contact-fluid flex items-center justify-center md:grid md:place-items-center text-center text-seashell font-semibold"
+          className="text-contact-tile-fluid flex items-center justify-center md:grid md:place-items-center text-center text-seashell font-semibold"
         >
           <p className="md:w-full text-center">C</p>
           <p className="md:w-full text-center">O</p>

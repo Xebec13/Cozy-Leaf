@@ -12,7 +12,6 @@ import {
   AboutPage,
   ContactPage,
 } from "./pages";
-
 import "./index.css";
 
 const router = createBrowserRouter([

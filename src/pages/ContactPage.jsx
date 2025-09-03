@@ -1,3 +1,4 @@
+import { NavPage, ScrollToTop } from "../components";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -6,7 +7,6 @@ import contactImage from "../assets/cl-restaurant-contact.png";
 import contactImage2 from "../assets/cl-restaurant-contact2.png";
 import contactImage3 from "../assets/cl-restaurant-contact3.png";
 
-import NavPage from '../components/NavPage'
 
 import {
   FaInstagramSquare,
@@ -51,7 +51,8 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-thulian-80 p-5 md:p-15 flex flex-col justify-center items-center md:items-start md:flex-row gap-10 text-softblack">
+    <section className="min-h-screen bg-thulian-80 p-15 flex flex-col justify-center items-center md:items-start md:flex-row gap-10 text-softblack">
+      <ScrollToTop/>
       <NavPage iconColor="text-seashell" overlayClassName="bg-softblack text-seashell" />
       {/* Left column – Contact Info */}
       <div
@@ -59,11 +60,11 @@ const ContactPage = () => {
         className="w-full md:w-1/2 md:sticky md:top-1/3 md:left-0 mt-15 text-seashell text-center md:text-left"
       >
         <h2 className="h2-fluid font-bold mb-4 text-softblack">Visit us, call us. We’re just a step away!</h2>
-        <p className="text-l ml-1">Monday – Wednesday: 12:00 PM – 12:00 AM</p>
-        <p className="text-l ml-1">Thursday – Friday: 12:00 PM – 01:00 AM</p>
-        <p className="text-l ml-1">Weekend: 12:00 PM – 02:00 AM</p>
-        <p className="text-l ml-1">contact@cozy-leaf.eu</p>
-        <p className="text-l ml-1">690 654 666</p>
+        <p className="text-s md:text-lg ml-1">Monday – Wednesday: 12:00 PM – 12:00 AM</p>
+        <p className="text-s md:text-lg ml-1">Thursday – Friday: 12:00 PM – 01:00 AM</p>
+        <p className="text-s md:text-lg ml-1">Weekend: 12:00 PM – 02:00 AM</p>
+        <p className="text-s md:text-lg ml-1">contact@cozy-leaf.eu</p>
+        <p className="text-s md:text-lg ml-1">690 654 666</p>
 
         {/* Social Media */}
         <div className="flex justify-center md:justify-start items-center gap-5 text-3xl mt-5 ml-1 text-seashell">

@@ -1,6 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import NavPage from "../components/NavPage";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { NavPage, ScrollToTop } from "../components";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const promotions = [
   {
     id: 1,
@@ -63,59 +67,56 @@ const groupedPromos = daysOfWeek.map((day) => ({
   ),
 }));
 
+// ---------------- PromoPage ----------------
 const PromoPage = () => {
   useGSAP(() => {
-    // animacja boxów
-    gsap.from(".promo-box", {
-      y: 50,
-      opacity: 0,
-      scale: 0.95,
-      duration: 1,
-      ease: "power3.out",
-      stagger: 0.2,
+    // animacja boxów (promo-bar)
+    gsap.utils.toArray(".promo-bar").forEach((el, i) => {
+      gsap.from(el, {
+        x: -50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: i * 0.15, // efekt domina
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
     });
 
-    // animacja nagłówków (wchodzą z góry)
-    gsap.from(".promo-text", {
-      y: -60,
-      opacity: 0,
-      scale: 0.85,
-      duration: 1.5,
-      ease: "power3.out",
+    // animacja dividerów
+    gsap.utils.toArray(".divider").forEach((el, i) => {
+      gsap.from(el, {
+        scaleX: 0,
+        transformOrigin: "left center",
+        duration: 2.5,
+        ease: "power3.out",
+        delay: i * 0.2, // ten sam efekt domina
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
     });
   }, []);
-
   return (
-    <section className="h-screen bg-thulian flex flex-col items-center p-15">
+    <section className="min-h-screen bg-seashell flex flex-col p-15">
+      <ScrollToTop />
       <NavPage
-        iconColor="text-seashell"
+        iconColor="text-softblack"
         overlayClassName="bg-seashell text-softblack"
       />
-      <h2 className="promo-text h2-fluid font-extrabold text-seashell mb-12">
+
+      <h2 className="text-right self-end promo-text h2-fluid font-extrabold text-softblack mb-5 mt-15">
         Weekly Promotions
       </h2>
 
-      <div className="flex flex-wrap justify-center items-center gap-5 w-full h-full">
+      <div>
         {groupedPromos.map(({ day, promos }) => (
-          <div
-            key={day}
-            className="promo-box bg-shocking-40 flex flex-col justify-center items-center gap-4 p-4 rounded-xl shadow-lg cursor-pointer"
-          >
-            <h3 className=" underline text-xl font-bold text-seashell">
-              {day}
-            </h3>
-
-            {promos.length > 0 ? (
-              promos.map(({ id, promotion, info }) => (
-                <div key={id} className="text-center">
-                  <h4 className=" text-seashell font-semibold">{promotion}</h4>
-                  <p className=" text-seashell/80 text-sm">{info}</p>
-                </div>
-              ))
-            ) : (
-              <p className=" text-seashell/40 italic text-sm">No promos</p>
-            )}
-          </div>
+          <PromoBox key={day} day={day} promos={promos} />
         ))}
       </div>
     </section>
@@ -123,3 +124,24 @@ const PromoPage = () => {
 };
 
 export default PromoPage;
+
+// ---------------- PromoBox ----------------
+const PromoBox = ({ day, promos }) => (
+  <div className="promo-bar bg-seashell mb-10 p-2">
+    <h3 className="text-2xl md:text-4xl font-bold text-thulian-80">{day}</h3>
+
+    {promos.length > 0 ? (
+      promos.map(({ id, promotion, info }) => (
+        <div key={id} className="text-softblack text-s md:text-s">
+          <h4 className="font-semibold underline">{promotion}</h4>
+          <p>{info}</p>
+        </div>
+      ))
+    ) : (
+      <p className="italic text-softblack/40 text-sm">No promos</p>
+    )}
+
+    {/* divider z klasą "divider" */}
+    <div className="divider h-1 bg-thulian-80 w-full my-2"></div>
+  </div>
+);

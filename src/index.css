@@ -6,6 +6,7 @@ body {
   background-color: hsla(167, 35%, 38%, 1);
 }
 
+
 @layer utilities {
   /* 👇 kolory */
   .bg-seashell {
@@ -63,30 +64,30 @@ body {
 
   /* === Shocking Pink === */
   .bg-shocking {
-    background-color: hsla(318, 75%, 56%, 1);
-  }
-  .bg-shocking-80 {
-    background-color: hsla(318, 75%, 56%, 0.8);
-  }
-  .bg-shocking-60 {
-    background-color: hsla(318, 75%, 56%, 0.6);
-  }
-  .bg-shocking-40 {
-    background-color: hsla(318, 75%, 56%, 0.4);
-  }
+  background-color: hsla(318, 60%, 70%, 1);
+}
+.bg-shocking-80 {
+  background-color: hsla(318, 60%, 70%, 0.8);
+}
+.bg-shocking-60 {
+  background-color: hsla(318, 60%, 70%, 0.6);
+}
+.bg-shocking-40 {
+  background-color: hsla(318, 60%, 70%, 0.4);
+}
 
-  .text-shocking {
-    color: hsla(318, 75%, 56%, 1);
-  }
-  .text-shocking-80 {
-    color: hsla(318, 75%, 56%, 0.8);
-  }
-  .text-shocking-60 {
-    color: hsla(318, 75%, 56%, 0.6);
-  }
-  .text-shocking-40 {
-    color: hsla(318, 75%, 56%, 0.4);
-  }
+.text-shocking {
+  color: hsla(318, 60%, 70%, 1);
+}
+.text-shocking-80 {
+  color: hsla(318, 60%, 70%, 0.8);
+}
+.text-shocking-60 {
+  color: hsla(318, 60%, 70%, 0.6);
+}
+.text-shocking-40 {
+  color: hsla(318, 60%, 70%, 0.4);
+}
 
   /* === Carolina Blue === */
   .bg-carolina {
@@ -181,15 +182,15 @@ body {
     font-size: clamp(3rem, 3.75rem, 5vw);
     line-height: 1;
   }
-  .text-contact-fluid {
+  .text-contact-tile-fluid {
     font-size: clamp(2rem, 2.5rem, 4vw);
     line-height: 1;
   }
   .h1-fluid {
-    font-size: clamp(3.5rem, 4.25rem, 5.5vw);
+    font-size: clamp(3.5rem, 6rem, 5.5vw);
   }
   .h2-fluid {
-    font-size: clamp(3rem, 4rem, 5vw);
+    font-size: clamp(2rem, 5rem, 6vw);
     line-height: 1;
   }
 }

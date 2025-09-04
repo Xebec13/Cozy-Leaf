@@ -147,7 +147,7 @@ const AboutPage = () => {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                "linear-gradient(180deg, hsla(203,50%,62%,1) 0%, hsla(203,50%,62%,0.3) 30%, hsla(25,35%,85%,0.25) 60%, hsla(25,35%,30%,1) 100%)",
+                "linear-gradient(180deg, hsla(203,50%,62%,1) 0%, hsla(203,50%,62%,0.3) 30%, hsla(25,35%,85%,0.25) 40%, hsla(25,35%,30%,1) 100%)",
             }}
           />
           <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
@@ -171,7 +171,7 @@ const AboutPage = () => {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                "linear-gradient(180deg, hsla(25,35%,30%,1) 0%,hsla(25,35%,85%,0.3) 30%,hsla(25,35%,85%,0.25) 60%, hsla(25,35%,30%,1) 100%)",
+                "linear-gradient(180deg, hsla(25,35%,30%,1) 0%,hsla(25,35%,85%,0.25) 60%, hsla(25,35%,30%,1) 100%)",
             }}
           />
           <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">

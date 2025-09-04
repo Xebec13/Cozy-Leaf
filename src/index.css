@@ -6,7 +6,6 @@ body {
   background-color: hsla(167, 35%, 38%, 1);
 }
 
-
 @layer utilities {
   /* 👇 kolory */
   .bg-seashell {
@@ -15,24 +14,85 @@ body {
   .bg-seashell-80 {
     background-color: hsla(16, 33%, 91%, 0.8);
   }
-  .bg-seashell-60 {
-    background-color: hsla(16, 33%, 91%, 0.6);
-  }
-  .bg-seashell-40 {
-    background-color: hsla(16, 33%, 91%, 0.4);
-  }
-
   .text-seashell {
     color: hsla(16, 33%, 91%, 1);
   }
-  .text-seashell-80 {
-    color: hsla(16, 33%, 91%, 0.8);
+
+  /* === Lilac === */
+  .bg-lilac {
+    background-color: hsla(270, 40%, 75%, 1);
   }
-  .text-seashell-60 {
-    color: hsla(16, 33%, 91%, 0.6);
+  .bg-lilac-80 {
+    background-color: hsla(270, 40%, 75%, 0.8);
   }
-  .text-seashell-40 {
-    color: hsla(16, 33%, 91%, 0.4);
+  .text-lilac {
+    color: hsla(270, 40%, 75%, 1);
+  }
+
+  /* === Thistle === */
+  .bg-thistle {
+    background-color: rgb(222, 161, 233);
+  }
+  .bg-thistle-80 {
+    background-color: rgba(222, 161, 233, 0.8);
+  }
+  .text-thistle {
+    color: #cdb4dbff;
+  }
+
+  /* === Teal === */
+  .bg-teal {
+    background-color: hsla(180, 40%, 35%, 1);
+  }
+  .bg-teal-80 {
+    background-color: hsla(180, 40%, 35%, 0.8);
+  }
+  .text-teal {
+    color: hsla(180, 40%, 35%, 1);
+  }
+
+  /* === Fairy Tale === */
+  .bg-fairy-tale {
+    background-color: rgb(246, 163, 195);
+  }
+  .bg-fairy-tale-80 {
+    background-color: rgba(246, 163, 195, 0.8);
+  }
+  .text-fairy-tale {
+    color: #ffc8ddff;
+  }
+
+  /* === Carnation Pink === */
+  .bg-carnation-pink {
+    background-color: #ffafccff;
+  }
+  .bg-carnation-pink-80 {
+    background-color: rgba(255, 175, 204, 0.8);
+  }
+  .text-carnation-pink {
+    color: #ffafccff;
+  }
+
+  /* === Uranian Blue === */
+  .bg-uranian-blue {
+    background-color: #bde0feff;
+  }
+  .bg-uranian-blue-80 {
+    background-color: rgba(189, 224, 254, 0.8);
+  }
+  .text-uranian-blue {
+    color: #bde0feff;
+  }
+
+  /* === Light Sky Blue === */
+  .bg-light-sky-blue {
+    background-color: #a2d2ffff;
+  }
+  .bg-light-sky-blue-80 {
+    background-color: rgba(162, 210, 255, 0.8);
+  }
+  .text-light-sky-blue {
+    color: #a2d2ffff;
   }
 
   /* === Thulian Pink === */
@@ -42,52 +102,20 @@ body {
   .bg-thulian-80 {
     background-color: hsla(333, 78%, 67%, 0.8);
   }
-  .bg-thulian-60 {
-    background-color: hsla(333, 78%, 67%, 0.6);
-  }
-  .bg-thulian-40 {
-    background-color: hsla(333, 78%, 67%, 0.4);
-  }
-
   .text-thulian {
     color: hsla(333, 78%, 67%, 1);
-  }
-  .text-thulian-80 {
-    color: hsla(333, 78%, 67%, 0.8);
-  }
-  .text-thulian-60 {
-    color: hsla(333, 78%, 67%, 0.6);
-  }
-  .text-thulian-40 {
-    color: hsla(333, 78%, 67%, 0.4);
   }
 
   /* === Shocking Pink === */
   .bg-shocking {
-  background-color: hsla(318, 60%, 70%, 1);
-}
-.bg-shocking-80 {
-  background-color: hsla(318, 60%, 70%, 0.8);
-}
-.bg-shocking-60 {
-  background-color: hsla(318, 60%, 70%, 0.6);
-}
-.bg-shocking-40 {
-  background-color: hsla(318, 60%, 70%, 0.4);
-}
-
-.text-shocking {
-  color: hsla(318, 60%, 70%, 1);
-}
-.text-shocking-80 {
-  color: hsla(318, 60%, 70%, 0.8);
-}
-.text-shocking-60 {
-  color: hsla(318, 60%, 70%, 0.6);
-}
-.text-shocking-40 {
-  color: hsla(318, 60%, 70%, 0.4);
-}
+    background-color: hsla(318, 60%, 70%, 1);
+  }
+  .bg-shocking-80 {
+    background-color: hsla(318, 60%, 70%, 0.8);
+  }
+  .text-shocking {
+    color: hsla(318, 60%, 70%, 1);
+  }
 
   /* === Carolina Blue === */
   .bg-carolina {
@@ -96,24 +124,8 @@ body {
   .bg-carolina-80 {
     background-color: hsla(203, 50%, 62%, 0.8);
   }
-  .bg-carolina-60 {
-    background-color: hsla(203, 50%, 62%, 0.6);
-  }
-  .bg-carolina-40 {
-    background-color: hsla(203, 50%, 62%, 0.4);
-  }
-
   .text-carolina {
     color: hsla(203, 50%, 62%, 1);
-  }
-  .text-carolina-80 {
-    color: hsla(203, 50%, 62%, 0.8);
-  }
-  .text-carolina-60 {
-    color: hsla(203, 50%, 62%, 0.6);
-  }
-  .text-carolina-40 {
-    color: hsla(203, 50%, 62%, 0.4);
   }
 
   /* === Viridian === */
@@ -123,25 +135,11 @@ body {
   .bg-viridian-80 {
     background-color: hsla(167, 35%, 38%, 0.8);
   }
-  .bg-viridian-60 {
-    background-color: hsla(167, 35%, 38%, 0.6);
-  }
-  .bg-viridian-40 {
-    background-color: hsla(167, 35%, 38%, 0.4);
-  }
-
   .text-viridian {
     color: hsla(167, 35%, 38%, 1);
   }
-  .text-viridian-80 {
-    color: hsla(167, 35%, 38%, 0.8);
-  }
-  .text-viridian-60 {
-    color: hsla(167, 35%, 38%, 0.6);
-  }
-  .text-viridian-40 {
-    color: hsla(167, 35%, 38%, 0.4);
-  }
+
+  /* === Neutral === */
   .text-softblack {
     color: #333;
   }
@@ -190,12 +188,12 @@ body {
     font-size: clamp(3.5rem, 6rem, 5.5vw);
   }
   .h2-fluid {
-    font-size: clamp(2rem, 5rem, 6vw);
+    font-size: clamp(2rem, 4rem, 6vw);
     line-height: 1;
   }
 }
 @layer utilities {
   .shadow-viridian-strong {
-    box-shadow: 0 0 60px hsla(203, 50%, 62%, 0.4); 
+    box-shadow: 0 0 60px hsla(203, 50%, 62%, 0.4);
   }
 }

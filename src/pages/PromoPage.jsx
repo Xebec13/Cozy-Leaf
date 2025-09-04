@@ -80,8 +80,9 @@ const PromoPage = () => {
         delay: i * 0.15, // efekt domina
         scrollTrigger: {
           trigger: el,
-          start: "top 80%",
+          start: "top 85%",
           toggleActions: "play none none none",
+          
         },
       });
     });
@@ -96,14 +97,14 @@ const PromoPage = () => {
         delay: i * 0.2, // ten sam efekt domina
         scrollTrigger: {
           trigger: el,
-          start: "top 90%",
+          start: "top 100%",
           toggleActions: "play none none none",
         },
       });
     });
   }, []);
   return (
-    <section className="min-h-screen bg-seashell flex flex-col p-15">
+    <section className="min-h-screen bg-thistle-80 flex flex-col p-15">
       <ScrollToTop />
       <NavPage
         iconColor="text-softblack"
@@ -117,8 +118,11 @@ const PromoPage = () => {
       <div>
         {groupedPromos.map(({ day, promos }) => (
           <PromoBox key={day} day={day} promos={promos} />
+          
         ))}
+        
       </div>
+      
     </section>
   );
 };
@@ -127,8 +131,8 @@ export default PromoPage;
 
 // ---------------- PromoBox ----------------
 const PromoBox = ({ day, promos }) => (
-  <div className="promo-bar bg-seashell mb-10 p-2">
-    <h3 className="text-2xl md:text-4xl font-bold text-thulian-80">{day}</h3>
+  <div className="promo-bar  mb-10 p-2">
+    <h3 className="text-2xl md:text-4xl font-bold text-softblack">{day}</h3>
 
     {promos.length > 0 ? (
       promos.map(({ id, promotion, info }) => (
@@ -140,8 +144,7 @@ const PromoBox = ({ day, promos }) => (
     ) : (
       <p className="italic text-softblack/40 text-sm">No promos</p>
     )}
-
     {/* divider z klasą "divider" */}
-    <div className="divider h-1 bg-thulian-80 w-full my-2"></div>
+    <div className="divider h-1 bg-seashell w-full my-2"></div>
   </div>
 );

@@ -19,7 +19,7 @@ const Nav = () => {
       <ScrollToTop/>
       <HtmlBcg/>
       <SakuraPetals petalCount={40} color1="text-thulian" color2="text-carolina" />
-      <ul className="block md:grid md:grid-cols-[2fr_2fr_2fr_2fr_0.5fr] md:grid-rows-5 w-full h-full uppercase text-seashell">
+      <ul className="block md:grid md:grid-cols-[2fr_2fr_2fr_2fr_0.5fr] md:grid-rows-5 gap-0.5 w-full h-full uppercase text-seashell">
         {/* Logo */}
         <div className="tile-hover p-5 relative col-span-2 row-span-2 flex flex-col justify-center items-center text-seashell overflow-hidden">
           

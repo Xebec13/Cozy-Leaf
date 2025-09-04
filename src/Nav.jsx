@@ -1,6 +1,6 @@
 import SakuraPetals from "./styles/SakuraPetals";
 import LeafIcon from "./styles/LeafIcon";
-import {ScrollToTop} from './components/'
+import {ScrollToTop,HtmlBcg} from './components/'
 
 import {
   EventsTile,
@@ -17,6 +17,7 @@ const Nav = () => {
   return (
     <nav className="h-[150dvh] bg-transparent p-5 md:p-15">
       <ScrollToTop/>
+      <HtmlBcg/>
       <SakuraPetals petalCount={40} color1="text-thulian" color2="text-carolina" />
       <ul className="block md:grid md:grid-cols-[2fr_2fr_2fr_2fr_0.5fr] md:grid-rows-5 w-full h-full uppercase text-seashell">
         {/* Logo */}

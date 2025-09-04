@@ -1,9 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 @import "tailwindcss";
 
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: hsla(167, 35%, 38%, 1);
+@layer utilities {
+  body {
+    font-family: "Poppins", sans-serif;
+  }
 }
 
 @layer utilities {
@@ -39,62 +40,30 @@ body {
   .text-thistle {
     color: #cdb4dbff;
   }
-
-  /* === Teal === */
-  .bg-teal {
-    background-color: hsla(180, 40%, 35%, 1);
+  /* === Plum Rose === */
+  .bg-plumrose {
+    background-color: #904e6c;
   }
-  .bg-teal-80 {
-    background-color: hsla(180, 40%, 35%, 0.8);
+  .bg-plumrose-80 {
+    background-color: rgba(144, 78, 108, 0.8);
   }
-  .text-teal {
-    color: hsla(180, 40%, 35%, 1);
+  .text-plumrose {
+    color: #904e6c;
   }
-
-  /* === Fairy Tale === */
-  .bg-fairy-tale {
-    background-color: rgb(246, 163, 195);
+  /* === Teal Blue (Sky Magenta) === */
+  .bg-tealblue {
+    background-color: #5796a2;
   }
-  .bg-fairy-tale-80 {
-    background-color: rgba(246, 163, 195, 0.8);
+  .bg-tealblue-80 {
+    background-color: rgba(87, 150, 162, 0.8);
   }
-  .text-fairy-tale {
-    color: #ffc8ddff;
+  .text-tealblue {
+    color: #5796a2;
   }
-
-  /* === Carnation Pink === */
-  .bg-carnation-pink {
-    background-color: #ffafccff;
+  /* === Mauve === */
+  .bg-mauve {
+    background-color: #d0a6c9;
   }
-  .bg-carnation-pink-80 {
-    background-color: rgba(255, 175, 204, 0.8);
-  }
-  .text-carnation-pink {
-    color: #ffafccff;
-  }
-
-  /* === Uranian Blue === */
-  .bg-uranian-blue {
-    background-color: #bde0feff;
-  }
-  .bg-uranian-blue-80 {
-    background-color: rgba(189, 224, 254, 0.8);
-  }
-  .text-uranian-blue {
-    color: #bde0feff;
-  }
-
-  /* === Light Sky Blue === */
-  .bg-light-sky-blue {
-    background-color: #a2d2ffff;
-  }
-  .bg-light-sky-blue-80 {
-    background-color: rgba(162, 210, 255, 0.8);
-  }
-  .text-light-sky-blue {
-    color: #a2d2ffff;
-  }
-
   /* === Thulian Pink === */
   .bg-thulian {
     background-color: hsla(333, 78%, 67%, 1);
@@ -104,6 +73,16 @@ body {
   }
   .text-thulian {
     color: hsla(333, 78%, 67%, 1);
+  }
+  /* === Sky Magenta === */
+  .bg-skymagenta {
+    background-color: #cd79af;
+  }
+  .bg-skymagenta-80 {
+    background-color: rgba(205, 121, 175, 0.8);
+  }
+  .text-skymagenta {
+    color: #cd79af;
   }
 
   /* === Shocking Pink === */

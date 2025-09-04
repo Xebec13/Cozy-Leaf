@@ -1,7 +1,7 @@
+import { NavPage, ScrollToTop,HtmlBcg } from "../components";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { NavPage, ScrollToTop } from "../components";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,6 +69,7 @@ const groupedPromos = daysOfWeek.map((day) => ({
 
 // ---------------- PromoPage ----------------
 const PromoPage = () => {
+  
   useGSAP(() => {
     // animacja boxów (promo-bar)
     gsap.utils.toArray(".promo-bar").forEach((el, i) => {
@@ -86,7 +87,17 @@ const PromoPage = () => {
         },
       });
     });
-
+    gsap.from(".promo-title", {
+      y: -60,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".gallery-title",
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
+    });
     // animacja dividerów
     gsap.utils.toArray(".divider").forEach((el, i) => {
       gsap.from(el, {
@@ -103,15 +114,17 @@ const PromoPage = () => {
       });
     });
   }, []);
+  
   return (
-    <section className="min-h-screen bg-thistle-80 flex flex-col p-15">
+    <section className="min-h-screen bg-thistle flex flex-col p-15">
       <ScrollToTop />
+      <HtmlBcg/>
       <NavPage
         iconColor="text-softblack"
         overlayClassName="bg-seashell text-softblack"
       />
 
-      <h2 className="text-right self-end promo-text h2-fluid font-extrabold text-softblack mb-5 mt-15">
+      <h2 className="text-right self-end promo-title h2-fluid font-extrabold text-softblack mb-5 mt-15">
         Weekly Promotions
       </h2>
 

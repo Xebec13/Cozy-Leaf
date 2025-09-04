@@ -1,17 +1,18 @@
-import { NavPage, Carousel, ScrollToTop } from "../components";
+import { NavPage, Carousel, ScrollToTop,HtmlBcg } from "../components";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaArrowDown } from "react-icons/fa";
 import SakuraPetals from "../styles/SakuraPetals";
-import image1 from "../assets/cl-restaurant-about.png";
-import image2 from "../assets/cl-restaurant-about2.png";
-import image3 from "../assets/cl-restaurant-about3.png";
-import image4 from "../assets/cl-restaurant-about4.png";
-import image5 from "../assets/cl-restaurant-about5.png";
-import image6 from "../assets/cl-restaurant-about6.png";
 
-const sliderImages = [image2, image3, image4, image5];
+import imageFarm from "../assets/cl-restaurant-about.png";
+import imageKitchen from "../assets/cl-restaurant-about6.png";
+import image1 from "../assets/gallery6.png";
+import image2 from "../assets/gallery7.png";
+import image3 from "../assets/gallery8.png";
+
+
+const sliderImages = [image1, image2, image3];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -121,6 +122,7 @@ const AboutPage = () => {
   return (
     <section className="min-h-screen text-seashell ">
       <ScrollToTop/>
+      <HtmlBcg/>
       <NavPage
         iconColor="text-seashell"
         overlayClassName="bg-viridian text-seashell"
@@ -141,7 +143,7 @@ const AboutPage = () => {
         <div className="parallaxSection min-h-screen md:h-[150vh] flex flex-col justify-center items-center relative overflow-hidden p-15">
           <div
             className="bg absolute inset-0 w-full h-full bg-center bg-cover"
-            style={{ backgroundImage: `url(${image1})` }}
+            style={{ backgroundImage: `url(${imageFarm})` }}
           />
           <div
             className="absolute inset-0"
@@ -165,7 +167,7 @@ const AboutPage = () => {
         <div className="parallaxSection min-h-screen md:h-[150vh] flex flex-col justify-center items-center relative overflow-hidden p-15">
           <div
             className="bg absolute inset-0 w-full h-full bg-center bg-cover"
-            style={{ backgroundImage: `url(${image6})` }}
+            style={{ backgroundImage: `url(${imageKitchen})` }}
           />
           <div
             className="absolute inset-0"

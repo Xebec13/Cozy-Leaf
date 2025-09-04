@@ -1,4 +1,4 @@
-import { NavPage, ScrollToTop } from "../components";
+import { NavPage, ScrollToTop,HtmlBcg } from "../components";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -51,8 +51,9 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-thulian-80 p-15 flex flex-col justify-center items-center md:items-start md:flex-row gap-10 text-softblack">
+    <section className="min-h-screen bg-thulian p-15 flex flex-col justify-center items-center md:items-start md:flex-row gap-10 text-softblack">
       <ScrollToTop/>
+      <HtmlBcg/>
       <NavPage iconColor="text-seashell" overlayClassName="bg-softblack text-seashell" />
       {/* Left column – Contact Info */}
       <div

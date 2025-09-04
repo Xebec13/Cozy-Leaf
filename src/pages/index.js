@@ -1,4 +1,4 @@
-export { default as EventPage } from "./EventPage";
+export { default as EventsPage } from "./EventsPage";
 export { default as GalleryPage } from "./GalleryPage";
 export { default as MenuPage } from "./MenuPage";
 export { default as PromoPage } from "./PromoPage";

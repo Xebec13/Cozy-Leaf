@@ -34,6 +34,7 @@ const NavPage = ({ iconColor = "text-white", overlayClassName = "bg-black text-w
         <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
         <Link to="/menu" onClick={() => setIsOpen(false)}>Menu</Link>
         <Link to="/gallery" onClick={() => setIsOpen(false)}>Gallery</Link>
+        <Link to="/events" onClick={() => setIsOpen(false)}>Events</Link>
         <Link to="/promo" onClick={() => setIsOpen(false)}>Promo</Link>
         <Link to="/reservation" onClick={() => setIsOpen(false)}>Reservation</Link>
         <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>

@@ -143,8 +143,9 @@
   }
 
   .tile-hover {
-    transition: transform 0.5s ease, filter 0.5s ease-in-out,z-index 0.01 ease-in-out;
-    will-change: transform, filter,z-index;
+    transition: transform 0.5s ease, filter 0.5s ease-in-out,
+      z-index 0.01 ease-in-out;
+    will-change: transform, filter, z-index;
   }
 
   .tile-hover:hover {

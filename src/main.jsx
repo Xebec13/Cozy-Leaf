@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import App from "./App";
 import {
-  EventPage,
+  EventsPage,
   GalleryPage,
   MenuPage,
   PromoPage,
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/events",
-    Component: EventPage,
+    Component: EventsPage,
   },
   {
     path: "/gallery",

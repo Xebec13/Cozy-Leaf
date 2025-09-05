@@ -2,7 +2,7 @@ import { NavPage, ScrollToTop,HtmlBcg } from "../components";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-
+import SakuraPetals from "../styles/SakuraPetals";
 import contactImage from "../assets/cl-restaurant-contact.png";
 import contactImage2 from "../assets/cl-restaurant-contact2.png";
 import contactImage3 from "../assets/cl-restaurant-contact3.png";
@@ -53,6 +53,7 @@ const ContactPage = () => {
   return (
     <section className="min-h-screen bg-thulian p-15 flex flex-col justify-center items-center md:items-start md:flex-row gap-10 text-softblack">
       <ScrollToTop/>
+      <SakuraPetals petalCount={50} color1="text-shocking" color2="text-carolina" />
       <HtmlBcg/>
       <NavPage iconColor="text-seashell" overlayClassName="bg-softblack text-seashell" />
       {/* Left column – Contact Info */}
@@ -63,7 +64,7 @@ const ContactPage = () => {
         <h2 className="h2-fluid font-bold mb-4 text-softblack">Visit us, call us. We’re just a step away!</h2>
         <p className="text-s md:text-lg ml-1">Monday – Wednesday: 12:00 PM – 12:00 AM</p>
         <p className="text-s md:text-lg ml-1">Thursday – Friday: 12:00 PM – 01:00 AM</p>
-        <p className="text-s md:text-lg ml-1">Weekend: 12:00 PM – 02:00 AM</p>
+        <p className="text-s md:text-lg ml-1">Weekend: 12:00 PM – last guest</p>
         <p className="text-s md:text-lg ml-1">contact@cozy-leaf.eu</p>
         <p className="text-s md:text-lg ml-1">690 654 666</p>
 
@@ -83,7 +84,7 @@ const ContactPage = () => {
             <img
               key={i}
               ref={(el) => (imagesRef.current[i] = el)}
-              className="w-full aspect-[4/3] object-cover rounded-xl shadow-viridian-strong"
+              className="w-full aspect-[4/3] object-cover rounded-xl shadow-2xl"
               src={src}
               alt={`restaurant-${i}`}
             />

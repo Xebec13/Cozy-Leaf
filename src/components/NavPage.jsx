@@ -19,7 +19,7 @@ const NavPage = ({ iconColor = "text-white", overlayClassName = "bg-black text-w
 
       {/* Overlay */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center gap-8 text-2xl font-semibold transform transition-transform duration-600 ease-in-out ${overlayClassName} ${
+        className={`fixed top-0 left-0 z-50 w-full h-screen flex flex-col justify-center items-center gap-8 text-2xl font-semibold transform transition-transform duration-600 ease-in-out ${overlayClassName} ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -32,8 +32,9 @@ const NavPage = ({ iconColor = "text-white", overlayClassName = "bg-black text-w
         </button>
 
         <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
-        <Link to="/menu" onClick={() => setIsOpen(false)}>Menu</Link>
         <Link to="/gallery" onClick={() => setIsOpen(false)}>Gallery</Link>
+        <Link to="/menu" onClick={() => setIsOpen(false)}>Menu</Link>
+        <Link to="/order" onClick={() => setIsOpen(false)}>Order</Link>
         <Link to="/events" onClick={() => setIsOpen(false)}>Events</Link>
         <Link to="/promo" onClick={() => setIsOpen(false)}>Promo</Link>
         <Link to="/reservation" onClick={() => setIsOpen(false)}>Reservation</Link>

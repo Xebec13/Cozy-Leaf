@@ -1,9 +1,19 @@
-import { NavPage, ScrollToTop,HtmlBcg } from "../components";
+import { NavPage, ScrollToTop, HtmlBcg } from "../components";
+import SakuraPetals from "../styles/SakuraPetals";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger,useGSAP);
 
-gsap.registerPlugin(ScrollTrigger);
+import {
+  FaLeaf,
+  FaCocktail,
+  FaChild,
+  FaGraduationCap,
+  FaCoffee,
+  FaBirthdayCake,
+  FaAppleAlt,
+} from "react-icons/fa";
 
 const promotions = [
   {
@@ -11,42 +21,49 @@ const promotions = [
     day: "Monday",
     promotion: "Meatless Monday",
     info: "Kickstart your week with 20% off all vegan entrées.",
+    icon: <FaLeaf />,
   },
   {
     id: 2,
     day: ["Tuesday", "Wednesday"],
     promotion: "Midweek Boost",
     info: "Buy one smoothie, get the second half price.",
+    icon: <FaAppleAlt />,
   },
   {
     id: 3,
     day: "Thursday",
     promotion: "Happy Hours",
     info: "Enjoy 2-for-1 cocktails from 4 PM to 6 PM.",
+    icon: <FaCocktail />,
   },
   {
     id: 4,
     day: ["Friday", "Saturday"],
     promotion: "Family Feast",
     info: "Kids eat free with every adult entrée after 6 PM.",
+    icon: <FaChild />,
   },
   {
     id: 5,
     day: "Friday",
     promotion: "Student Special",
     info: "Show your student ID and get 15% off any meal.",
+    icon: <FaGraduationCap />,
   },
   {
     id: 6,
     day: ["Friday", "Saturday"],
     promotion: "Brunch & Coffee Deal",
     info: "Free specialty coffee with every brunch order until 2 PM.",
+    icon: <FaCoffee />,
   },
   {
     id: 7,
     day: "Sunday",
     promotion: "Sunday Treat",
     info: "Celebrate the weekend with a free dessert on any main course.",
+    icon: <FaBirthdayCake />,
   },
 ];
 
@@ -69,7 +86,15 @@ const groupedPromos = daysOfWeek.map((day) => ({
 
 // ---------------- PromoPage ----------------
 const PromoPage = () => {
-  
+  useGSAP(() => {
+    // animacja nagłówka
+    gsap.from(".promo-title", {
+      y: -60,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power3.out",
+    });
+  }, []);
   useGSAP(() => {
     // animacja boxów (promo-bar)
     gsap.utils.toArray(".promo-bar").forEach((el, i) => {
@@ -83,20 +108,8 @@ const PromoPage = () => {
           trigger: el,
           start: "top 85%",
           toggleActions: "play none none none",
-          
         },
       });
-    });
-    gsap.from(".promo-title", {
-      y: -60,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".gallery-title",
-        start: "top 90%",
-        toggleActions: "play none none none",
-      },
     });
     // animacja dividerów
     gsap.utils.toArray(".divider").forEach((el, i) => {
@@ -114,11 +127,16 @@ const PromoPage = () => {
       });
     });
   }, []);
-  
+
   return (
-    <section className="min-h-screen bg-thistle flex flex-col p-15">
+    <section className="min-h-screen bg-thistle p-15">
       <ScrollToTop />
-      <HtmlBcg/>
+      <SakuraPetals
+        petalCount={50}
+        color1="text-thulian"
+        color2="text-shocking"
+      />
+      <HtmlBcg />
       <NavPage
         iconColor="text-softblack"
         overlayClassName="bg-seashell text-softblack"
@@ -131,11 +149,8 @@ const PromoPage = () => {
       <div>
         {groupedPromos.map(({ day, promos }) => (
           <PromoBox key={day} day={day} promos={promos} />
-          
         ))}
-        
       </div>
-      
     </section>
   );
 };
@@ -144,20 +159,29 @@ export default PromoPage;
 
 // ---------------- PromoBox ----------------
 const PromoBox = ({ day, promos }) => (
-  <div className="promo-bar  mb-10 p-2">
+  <div className="promo-bar mb-10 p-2">
     <h3 className="text-2xl md:text-4xl font-bold text-softblack">{day}</h3>
 
     {promos.length > 0 ? (
-      promos.map(({ id, promotion, info }) => (
-        <div key={id} className="text-softblack text-s md:text-s">
-          <h4 className="font-semibold underline">{promotion}</h4>
-          <p>{info}</p>
+      promos.map(({ id, promotion, info, icon }) => (
+        <div
+          key={id}
+          className="text-softblack text-s md:text-s flex flex-col items-start mt-2"
+        >
+          {/* tekst promo */}
+          <div className="flex items-center justify-center gap-2 ml-1">
+            {/* ikona */}
+            <p className="text-xs">{icon}</p>
+            <h4 className="font-semibold">{promotion}</h4>
+          </div>
+          <p className="ml-1">{info}</p>
         </div>
       ))
     ) : (
-      <p className="italic text-softblack/40 text-sm">No promos</p>
+      <p className="italic text-softblack text-sm">No promos</p>
     )}
-    {/* divider z klasą "divider" */}
+
+    {/* divider */}
     <div className="divider h-1 bg-seashell w-full my-2"></div>
   </div>
 );

@@ -21,13 +21,16 @@ const HtmlBcg = () => {
         html.style.backgroundColor = "#cd79af"; //
         break;
       case "/menu":
-        html.style.backgroundColor = "hsla(16, 33%, 91%, 1)"; // bg-seashell
+        html.style.backgroundColor = "#904e6c"; // plumrose
         break;
       case "/about":
         html.style.backgroundColor = "hsla(203, 50%, 62%, 1)"; // bg-carolina
         break;
       case "/events":
         html.style.backgroundColor = "hsla(203, 50%, 62%, 1)"; // bg-carolina
+        break;
+      case "/reservation":
+        html.style.backgroundColor = "#d0a6c9"; // bg-mauve
         break;
       default:
         html.style.backgroundColor = "#fff"; // fallback

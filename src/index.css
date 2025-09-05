@@ -50,16 +50,7 @@
   .text-plumrose {
     color: #904e6c;
   }
-  /* === Teal Blue (Sky Magenta) === */
-  .bg-tealblue {
-    background-color: #5796a2;
-  }
-  .bg-tealblue-80 {
-    background-color: rgba(87, 150, 162, 0.8);
-  }
-  .text-tealblue {
-    color: #5796a2;
-  }
+ 
   /* === Mauve === */
   .bg-mauve {
     background-color: #d0a6c9;
@@ -173,8 +164,4 @@
     line-height: 1;
   }
 }
-@layer utilities {
-  .shadow-viridian-strong {
-    box-shadow: 0 0 60px hsla(203, 50%, 62%, 0.4);
-  }
-}
+

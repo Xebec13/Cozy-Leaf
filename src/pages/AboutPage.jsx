@@ -1,4 +1,4 @@
-import { NavPage, Carousel, ScrollToTop,HtmlBcg } from "../components";
+import { NavPage, Carousel, ScrollToTop, HtmlBcg } from "../components";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,10 +11,9 @@ import image1 from "../assets/gallery6.png";
 import image2 from "../assets/gallery7.png";
 import image3 from "../assets/gallery8.png";
 
-
 const sliderImages = [image1, image2, image3];
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger,useGSAP);
 
 const AboutPage = () => {
   // Section 1 animation (intro)
@@ -76,7 +75,9 @@ const AboutPage = () => {
       gsap.fromTo(
         bg,
         {
-          backgroundPosition: `50% ${-window.innerHeight * getRatio(section)}px`,
+          backgroundPosition: `50% ${
+            -window.innerHeight * getRatio(section)
+          }px`,
         },
         {
           backgroundPosition: `50% ${
@@ -121,8 +122,8 @@ const AboutPage = () => {
 
   return (
     <section className="min-h-screen text-seashell ">
-      <ScrollToTop/>
-      <HtmlBcg/>
+      <ScrollToTop />
+      <HtmlBcg />
       <NavPage
         iconColor="text-seashell"
         overlayClassName="bg-viridian text-seashell"
@@ -130,7 +131,11 @@ const AboutPage = () => {
 
       {/* Section 1 */}
       <div className="min-h-screen w-full bg-carolina flex flex-col justify-center items-center gap-10 p-15">
-        <SakuraPetals petalCount={50} color1="text-thulian" color2="text-viridian" />
+        <SakuraPetals
+          petalCount={50}
+          color1="text-thulian"
+          color2="text-viridian"
+        />
         <h2 className="text-center intro-line h2-fluid font-extrabold z-20">
           Our story begins with
         </h2>

@@ -1,4 +1,5 @@
 import { NavPage, ScrollToTop, HtmlBcg } from "../components";
+import SakuraPetals from "../styles/SakuraPetals"
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,7 +15,7 @@ import image8 from "../assets/gallery8.png";
 import image9 from "../assets/gallery9.png";
 import image10 from "../assets/gallery10.png";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger,useGSAP);
 
 const galleryItems = [
   { id: 1, image: image1, name: "Tofu Panko" },
@@ -35,15 +36,11 @@ const GalleryPage = () => {
     gsap.from(".gallery-title", {
       y: -60,
       opacity: 0,
-      duration: 1,
+      duration: 1.5,
       ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".gallery-title",
-        start: "top 90%",
-        toggleActions: "play none none none",
-      },
     });
-
+  }, []);
+  useGSAP(() => {
     // animacja reveal dla każdego elementu galerii
     gsap.utils.toArray(".gallery-item").forEach((el, i) => {
       gsap.from(el, {
@@ -60,10 +57,10 @@ const GalleryPage = () => {
       });
     });
   }, []);
-
   return (
     <section className="min-h-screen bg-skymagenta p-15">
       <ScrollToTop />
+      <SakuraPetals petalCount={50} color1="text-carolina" color2="text-viridian" />
       <HtmlBcg />
       <NavPage
         iconColor="text-seashell"

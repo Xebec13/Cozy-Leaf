@@ -32,7 +32,7 @@
 
   /* === Thistle === */
   .bg-thistle {
-    background-color: rgb(222, 161, 233);
+    background-color: hsl(291, 62%, 77%);
   }
   .bg-thistle-80 {
     background-color: rgba(222, 161, 233, 0.8);

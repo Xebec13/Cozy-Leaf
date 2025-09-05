@@ -76,12 +76,14 @@ const Legend = ({ promotions }) => {
       inertia: true,
     });
     gsap.set(legendRef.current, { x: 0, y: 0 });
-    // wiggle tylko raz przy starcie
+
     gsap.fromTo(
       legendRef.current,
-      { x: -10 },
+      { x: -10, backdropFilter: "blur(10px)", backgroundColor: "transparent" },
       {
         x: 10,
+        backdropFilter: "blur(10px)",
+        backgroundColor: "rgba(222, 161, 233, 0.8)",
         duration: 0.2,
         ease: "power1.inOut",
         yoyo: true,
@@ -92,7 +94,7 @@ const Legend = ({ promotions }) => {
   return (
     <div
       ref={legendRef}
-      className="fixed top-0 left-25 p-5 rounded-xl shadow-lg cursor-move z-50 backdrop-blur-lg"
+      className="fixed top-5 left-25 p-5 rounded-xl shadow-lg cursor-move z-50 backdrop-blur-lg"
     >
       <div className="flex flex-col gap-2">
         {promotions.map((p, i) => (
@@ -100,8 +102,8 @@ const Legend = ({ promotions }) => {
             key={i}
             className="flex items-center justify-start gap-2 text-softblack font-bold"
           >
-            <span className="text-sm">{p.icon}</span>
-            <span className="text-xs">{p.promotion}</span>
+            <span className="text-xs md:text-sm">{p.icon}</span>
+            <span className="text-xs md:text-xs">{p.promotion}</span>
           </div>
         ))}
       </div>
@@ -127,10 +129,18 @@ const EventsPage = () => {
         overlayClassName="bg-thistle text-softblack"
       />
 
-      <h2 className="text-seashell text-right self-end h2-fluid font-extrabold mb-5 mt-15">
+      <h2 className="z-20 text-seashell text-right self-end h2-fluid font-extrabold mb-5 mt-15">
         Events
       </h2>
-
+      <div className="hidden md:grid md:grid-cols-7 place-items-center">
+        <p>Mon</p>
+        <p>Tue</p>
+        <p>Wed</p>
+        <p>Thu</p>
+        <p>Fri</p>
+        <p>Sat</p>
+        <p>Sun</p>
+      </div>
       <div className="grid md:grid-cols-7 md:grid-rows-5 gap-2 w-full h-full z-20">
         {daysArray.map((day) => {
           const event = eventsItem.find((e) => e.date === day);

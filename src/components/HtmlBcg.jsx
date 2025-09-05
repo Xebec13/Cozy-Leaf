@@ -23,6 +23,9 @@ const HtmlBcg = () => {
       case "/menu":
         html.style.backgroundColor = "#904e6c"; // plumrose
         break;
+        case "/order":
+        html.style.backgroundColor = "hsla(16, 33%, 91%, 1)"; // seashell
+        break;
       case "/about":
         html.style.backgroundColor = "hsla(203, 50%, 62%, 1)"; // bg-carolina
         break;

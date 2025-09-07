@@ -7,8 +7,8 @@ import { gsap } from "gsap";
 import { useState } from "react";
 
 gsap.registerPlugin(useGSAP);
-// ---------------- ReservationForm ----------------
 
+// ================= ReservationForm =================
 const ReservationForm = () => {
   const [form, setForm] = useState({
     name: "",
@@ -22,6 +22,7 @@ const ReservationForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  // Basic form validation
   const validate = () => {
     const newErrors = {};
 
@@ -47,15 +48,17 @@ const ReservationForm = () => {
     return newErrors;
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
       setErrors({});
       alert("Reservation submitted ✅");
-      // ewentualnie czyszczenie formularza
+      // Reset form
       setForm({
         name: "",
         email: "",
@@ -69,14 +72,14 @@ const ReservationForm = () => {
   };
 
   return (
-    <div className="w-full flex justify-start items-center">
+    <div className="flex w-full items-center justify-start">
       <form
         onSubmit={handleSubmit}
-        className="w-full bg-thistle-80 rounded-xl shadow-xl p-5 space-y-3 border z-20"
+        className="z-20 w-full space-y-3 rounded-xl border bg-thistle-80 p-5 shadow-xl"
       >
         {/* Full Name */}
         <div>
-          <label className="block text-softblack font-semibold mb-2">
+          <label className="mb-2 block font-semibold text-softblack">
             Full Name
           </label>
           <input
@@ -84,14 +87,14 @@ const ReservationForm = () => {
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             placeholder="Your Name"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black bg-seashell-80"
+            className="w-full rounded-lg border bg-seashell-80 p-3 focus:outline-none focus:ring-1 focus:ring-black"
           />
-          {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+          {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
         </div>
 
         {/* Email */}
         <div>
-          <label className="block text-softblack font-semibold mb-2">
+          <label className="mb-2 block font-semibold text-softblack">
             Email
           </label>
           <input
@@ -99,16 +102,16 @@ const ReservationForm = () => {
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="your@email.com"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black bg-seashell-80"
+            className="w-full rounded-lg border bg-seashell-80 p-3 focus:outline-none focus:ring-1 focus:ring-black"
           />
           {errors.email && (
-            <p className="text-red-500 text-sm">{errors.email}</p>
+            <p className="text-sm text-red-500">{errors.email}</p>
           )}
         </div>
 
         {/* Phone */}
         <div>
-          <label className="block text-softblack font-semibold mb-2">
+          <label className="mb-2 block font-semibold text-softblack">
             Phone
           </label>
           <input
@@ -116,48 +119,48 @@ const ReservationForm = () => {
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
             placeholder="+48 123 456 789"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black bg-seashell-80"
+            className="w-full rounded-lg border bg-seashell-80 p-3 focus:outline-none focus:ring-1 focus:ring-black"
           />
           {errors.phone && (
-            <p className="text-red-500 text-sm">{errors.phone}</p>
+            <p className="text-sm text-red-500">{errors.phone}</p>
           )}
         </div>
 
         {/* Date & Time */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
-            <label className="block text-softblack font-semibold mb-2">
+            <label className="mb-2 block font-semibold text-softblack">
               Date
             </label>
             <input
               type="date"
               value={form.date}
               onChange={(e) => setForm({ ...form, date: e.target.value })}
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black bg-seashell-80"
+              className="w-full rounded-lg border bg-seashell-80 p-3 focus:outline-none focus:ring-1 focus:ring-black"
             />
             {errors.date && (
-              <p className="text-red-500 text-sm">{errors.date}</p>
+              <p className="text-sm text-red-500">{errors.date}</p>
             )}
           </div>
           <div>
-            <label className="block text-softblack font-semibold mb-2">
+            <label className="mb-2 block font-semibold text-softblack">
               Time
             </label>
             <input
               type="time"
               value={form.time}
               onChange={(e) => setForm({ ...form, time: e.target.value })}
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black bg-seashell-80"
+              className="w-full rounded-lg border bg-seashell-80 p-3 focus:outline-none focus:ring-1 focus:ring-black"
             />
             {errors.time && (
-              <p className="text-red-500 text-sm">{errors.time}</p>
+              <p className="text-sm text-red-500">{errors.time}</p>
             )}
           </div>
         </div>
 
         {/* Guests */}
         <div>
-          <label className="block text-softblack font-semibold mb-2">
+          <label className="mb-2 block font-semibold text-softblack">
             Number of Guests
           </label>
           <input
@@ -168,16 +171,16 @@ const ReservationForm = () => {
               setForm({ ...form, guests: Number(e.target.value) })
             }
             placeholder="2"
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black bg-seashell-80"
+            className="w-full rounded-lg border bg-seashell-80 p-3 focus:outline-none focus:ring-1 focus:ring-black"
           />
           {errors.guests && (
-            <p className="text-red-500 text-sm">{errors.guests}</p>
+            <p className="text-sm text-red-500">{errors.guests}</p>
           )}
         </div>
 
         {/* Message */}
         <div>
-          <label className="block text-softblack font-semibold mb-2">
+          <label className="mb-2 block font-semibold text-softblack">
             Message (optional)
           </label>
           <textarea
@@ -185,14 +188,14 @@ const ReservationForm = () => {
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
             placeholder="Special requests, allergies..."
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black bg-seashell-80"
+            className="w-full rounded-lg border bg-seashell-80 p-3 focus:outline-none focus:ring-1 focus:ring-black"
           />
         </div>
 
         {/* Submit */}
         <button
           type="submit"
-          className="w-full bg-softblack text-seashell font-bold p-3 rounded-lg cursor-pointer"
+          className="w-full cursor-pointer rounded-lg bg-softblack p-3 font-bold text-seashell"
         >
           Book a Table
         </button>
@@ -200,10 +203,11 @@ const ReservationForm = () => {
     </div>
   );
 };
-// ---------------- ReservationPage ----------------
+
+// ================= ReservationPage =================
 const ReservationPage = () => {
   useGSAP(() => {
-    // animacja nagłówka
+    // Title animation
     gsap.from(".reservation-title", {
       y: -60,
       opacity: 0,
@@ -211,41 +215,42 @@ const ReservationPage = () => {
       ease: "power3.out",
     });
 
-    // animacja dla zawartości grida (formularz + prawa kolumna)
+    // Content animation (form + right column)
     gsap.from(".reservation-content > div", {
       y: 40,
       opacity: 0,
       duration: 1.5,
       ease: "power3.out",
-      stagger: 0.4, // każdy element z małym opóźnieniem
+      stagger: 0.4,
     });
   }, []);
+
   return (
-    <section className="min-h-screen bg-mauve p-15">
+    <section className="min-h-screen bg-mauve p-5 md:p-15">
       <ScrollToTop />
-      <SakuraPetals
-        petalCount={50}
-        color1="text-thulian"
-        color2="text-carolina"
-      />
+      <SakuraPetals petalCount={50} color1="text-thulian" color2="text-carolina" />
       <HtmlBcg />
       <NavPage
         iconColor="text-softblack"
         overlayClassName="bg-thistle text-softblack"
       />
 
-      <h2 className="reservation-title text-softblack text-right self-end h2-fluid font-extrabold mb-5 mt-15">
+      <h2 className="reservation-title h2-fluid mb-5 mt-15 self-end text-right font-extrabold text-softblack">
         Reservation
       </h2>
-      {/* Osobny komponent formularza */}
-      <div className="reservation-content grid grid-cols-1 md:grid-cols-2 gap-5 place-items-start">
-        <div className="w-full min-w-[200px]">
+
+      {/* Main content: form + side info */}
+      <div className="reservation-content grid grid-cols-1 gap-5 place-items-start md:grid-cols-2">
+        {/* Form */}
+        <div className="min-w-[200px] w-full">
           <ReservationForm />
         </div>
-        <div className="w-full ml-auto z-20">
+
+        {/* Right column */}
+        <div className="z-20 ml-auto w-full">
           {/* Opening Hours */}
-          <div className="bg-thistle-80 text-softblack rounded-xl shadow-md p-5 mb-5 border">
-            <h3 className="font-bold text-s mb-2">Opening Hours</h3>
+          <div className="mb-5 rounded-xl border bg-thistle-80 p-5 text-softblack shadow-md">
+            <h3 className="mb-2 text-s font-bold">Opening Hours</h3>
             <ul className="space-y-1 text-sm">
               <li>
                 <span className="font-semibold">Lunch:</span> 12:00 – 17:00{" "}
@@ -253,7 +258,7 @@ const ReservationPage = () => {
               </li>
               <li>
                 <span className="font-semibold">Dinner:</span> 17:00 – 24:00{" "}
-                <em>(Food 23:00) </em>
+                <em>(Food 23:00)</em>
               </li>
               <li>
                 <span className="font-semibold">Drinks:</span> Served until
@@ -261,17 +266,21 @@ const ReservationPage = () => {
               </li>
             </ul>
           </div>
+
+          {/* Small calendar */}
           <Calendar
-            dayTextClass="text-softblack font-bold text-xs"
+            dayTextClass="text-xs font-bold text-softblack"
             eventTextClass="text-[0.5rem] italic"
             iconSize="text-[0.5rem]"
             textSize="text-xs"
-            containerGrid="grid grid-cols-5 md:grid-cols-7 gap-1"
+            containerGrid="grid grid-cols-4 gap-1 md:grid-cols-7"
             showWeekdays={false}
           />
+
+          {/* Link to Events */}
           <Link
             to="/events"
-            className="flex items-center justify-end gap-2 text-right text-softblack font-semibold mt-1 "
+            className="mt-1 flex items-center justify-end gap-2 text-right font-semibold text-softblack"
           >
             <span>Go to events</span>
             <FaArrowRight className="text-sm" />

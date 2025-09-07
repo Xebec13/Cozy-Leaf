@@ -193,19 +193,17 @@ const MenuPage = () => {
   }, [activeTab]); // odpala się przy zmianie taba
 
   useGSAP(() => {
+    gsap.from(".menu-tabs", {
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
     // animacja nagłówka
     gsap.from(".menu-title", {
       y: -60,
       opacity: 0,
       duration: 1.5,
-      ease: "power3.out",
-    });
-  }, []);
-  useGSAP(() => {
-    gsap.from(".menu-tabs", {
-      y: 30,
-      opacity: 0,
-      duration: 1,
       ease: "power3.out",
     });
   }, []);

@@ -77,7 +77,7 @@ const GalleryPage = () => {
             <img
               className="object-cover object-center aspect-[3/2] md:aspect-[4/3] rounded-xl shadow-xl"
               src={image}
-              loading="lazy"
+              loading="eager"
               alt={name}
             />
             <p className="text-softblack text-s md:text-lg ml-2">{name}</p>

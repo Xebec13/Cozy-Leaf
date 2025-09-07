@@ -10,7 +10,7 @@ const NavPage = ({ iconColor = "text-white", overlayClassName = "bg-black text-w
       {/* Ikona hamburgera */}
       {!isOpen && (
         <button
-          className={`flex items-center justify-center w-10 h-10 text-3xl cursor-pointer ${iconColor}`}
+          className={`flex items-center justify-center w-10 h-10 text-3xl cursor-pointer backdrop-blur-xl rounded-full ${iconColor}`}
           onClick={() => setIsOpen(true)}
         >
           <FaBars />

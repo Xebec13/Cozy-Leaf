@@ -15,7 +15,7 @@ import {
 
 const Nav = () => {
   return (
-    <nav className="h-[150dvh] bg-transparent p-5 md:p-15">
+    <nav className="min-h-screen bg-transparent p-5 md:p-15">
       <ScrollToTop/>
       <HtmlBcg/>
       <SakuraPetals petalCount={40} color1="text-thulian" color2="text-carolina" />

@@ -92,7 +92,7 @@ const MenuPage = () => {
 
       {/* Tabs navigation */}
       <div
-        className="menu-tabs grid grid-cols-2 gap-2 mb-8 justify-center md:grid-cols-4"
+        className="menu-tabs grid grid-cols-2 sm:grid-cols-4 gap-2 mb-8 justify-center"
         role="tablist"
       >
         {Object.keys(menuItems).map((section) => (
@@ -101,7 +101,7 @@ const MenuPage = () => {
             role="tab"
             aria-selected={activeTab === section}
             onClick={() => setActiveTab(section)}
-            className={`px-4 py-2 font-bold rounded-lg transition duration-300 cursor-pointer z-20 ${
+            className={`text-sm md:text-base px-4 py-2 font-bold rounded-lg transition duration-300 cursor-pointer z-20 ${
               activeTab === section ? "bg-seashell text-softblack" : "text-seashell"
             }`}
           >

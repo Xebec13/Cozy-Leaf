@@ -11,7 +11,6 @@ A modern, animated, and fully responsive restaurant site built with **React**, *
 - 🧭 **Home tiles navigation** with subtle hovers and wind-leaf detail
 - 🍽️ **Menu with tabs** (starters, mains, desserts, drinks) + soft readability background
 - 🛒 **Order flow with cart** (add/remove, quantity control, **localStorage** persistence)
-- 📅 **Custom Calendar** showing events + icons for daily promos
 - 🎞️ **Gallery** with staggered reveal and responsive grid
 - 📝 **Reservation form** with basic client-side validation
 - 🌸 Global **Sakura petals** ambiance (performance-friendly)
@@ -53,3 +52,14 @@ A modern, animated, and fully responsive restaurant site built with **React**, *
   <img src="./src/assets//gifs/about.png" alt="About page" width="35%" />
   <img src="./src/assets//gifs/contact.png" alt="Contact page" width="35%" />
 </p>
+
+
+## Project Structure
+src/
+│── assets/          # Images & icons (gallery, about/contact, etc.)
+│── components/      # Shared UI: NavPage, Calendar, Carousel, HtmlBcg, etc.
+│── pages/           # Page-level: Home/Nav, Menu, Order, Events, Promo, Reservation, About, Contact, Gallery
+│── styles/          # SakuraPetals, LeafIcon and style helpers
+│── tiles/           # Home navigation tiles (GalleryTile, MenuTile, ...)
+│── App.jsx          # Routes
+│── index.css        # Tailwind + custom utilities (colors, typography)

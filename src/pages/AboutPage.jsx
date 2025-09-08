@@ -165,7 +165,7 @@ const AboutPage = () => {
       </div>
 
       {/* Section 4 – Carousel */}
-      <div className="flex flex-col-reverse md:flex-row justify-center items-center gap-5 min-h-screen md:h-screen bg-[hsla(25,35%,30%,1)] p-5 md:p-15">
+      <div className="flex flex-col-reverse md:flex-row justify-center items-center gap-5 h-screen bg-[hsla(25,35%,30%,1)] p-5 md:p-15">
         <div className="carousel-container w-full h-full md:w-1/2 aspect-[4/3]">
           <Carousel images={sliderImages} />
         </div>

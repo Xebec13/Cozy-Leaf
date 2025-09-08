@@ -50,6 +50,6 @@ A modern, animated, and fully responsive restaurant site built with **React**, *
 
 ### ℹ️ About & Contact
 <p align="center">
-  <img src="./about.png" alt="About page" width="45%" />
-  <img src="./contact.png" alt="Contact page" width="45%" />
+  <img src="./src/assets//gifs/about.png" alt="About page" width="35%" />
+  <img src="./src/assets//gifs/contact.png" alt="Contact page" width="35%" />
 </p>

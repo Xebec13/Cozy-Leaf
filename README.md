@@ -27,10 +27,16 @@ A modern, animated, and fully responsive restaurant site built with **React**, *
 - Vite (dev server & build)
 
 ---
+## 🎨 Color Palette
 
-## Screens & GIFs
-
-> All assets are stored locally in this repo. If you don’t have all of these, remove or rename as needed.
+| Name           | HSLA                  |
+|----------------|-----------------------|
+| Seashell       | hsla(16, 33%, 91%, 1) |
+| Thulian Pink   | hsla(333, 78%, 67%, 1)|
+| Carolina Blue  | hsla(203, 50%, 62%, 1)|
+| Viridian       | hsla(167, 35%, 38%, 1)|
+| Shocking Pink  | hsla(318, 60%, 70%, 1)|
+| Mauve          | hsla(311, 31%, 73%, 1)|
 
 ### 🏠 Navigation
 ![Navigation](./src/assets/gifs/header.gif)
@@ -53,13 +59,10 @@ A modern, animated, and fully responsive restaurant site built with **React**, *
   <img src="./src/assets//gifs/contact.png" alt="Contact page" width="35%" />
 </p>
 
+## 🚀 Future Improvements
 
-## Project Structure
-src/
-│── assets/          # Images & icons (gallery, about/contact, etc.)
-│── components/      # Shared UI: NavPage, Calendar, Carousel, HtmlBcg, etc.
-│── pages/           # Page-level: Home/Nav, Menu, Order, Events, Promo, Reservation, About, Contact, Gallery
-│── styles/          # SakuraPetals, LeafIcon and style helpers
-│── tiles/           # Home navigation tiles (GalleryTile, MenuTile, ...)
-│── App.jsx          # Routes
-│── index.css        # Tailwind + custom utilities (colors, typography)
+- 🔗 Integrate with a real API (dynamic menu & events data)  
+- 📩 Reservation system connected to backend  
+- 🛠️ Refactor components for higher reusability  
+- 🌍 Multi-language support  
+- 📊 Accessibility refinements (ARIA roles, better contrast)  

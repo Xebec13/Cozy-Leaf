@@ -1,5 +1,5 @@
 import { NavPage, ScrollToTop, HtmlBcg } from "../components";
-import SakuraPetals from "../styles/SakuraPetals"
+import SakuraPetals from "../styles/SakuraPetals";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,13 +15,13 @@ import image8 from "../assets/gallery8.png";
 import image9 from "../assets/gallery9.png";
 import image10 from "../assets/gallery10.png";
 
-gsap.registerPlugin(ScrollTrigger,useGSAP);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const galleryItems = [
   { id: 1, image: image1, name: "Tofu Panko" },
-  { id: 2, image: image2, name: "Sweet&Sour" },
+  { id: 2, image: image2, name: "Sweet & Sour" },
   { id: 3, image: image3, name: "Lava Cake" },
-  { id: 4, image: image4, name: "Desert" },
+  { id: 4, image: image4, name: "Dessert" },
   { id: 5, image: image5, name: "Every Tomato" },
   { id: 6, image: image6, name: "Zucchini" },
   { id: 7, image: image7, name: "Asparagus" },
@@ -31,8 +31,8 @@ const galleryItems = [
 ];
 
 const GalleryPage = () => {
+  // Title animation
   useGSAP(() => {
-    // animacja nagłówka
     gsap.from(".gallery-title", {
       y: -60,
       opacity: 0,
@@ -40,47 +40,51 @@ const GalleryPage = () => {
       ease: "power3.out",
     });
   }, []);
+
+  // Reveal animation for gallery items
   useGSAP(() => {
-    // animacja reveal dla każdego elementu galerii
-    gsap.utils.toArray(".gallery-item").forEach((el, i) => {
-      gsap.from(el, {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: i * 0.1, // lekki efekt domina
-        scrollTrigger: {
-          trigger: el,
-          start: "top 95%",
-          toggleActions: "play none none none",
-        },
-      });
+    gsap.from(".gallery-item *", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: ".gallery-item",
+        start: "top 95%",
+        toggleActions: "play none none none",
+      },
     });
   }, []);
+
   return (
-    <section className="min-h-screen bg-skymagenta p-15">
+    <section className="min-h-screen bg-skymagenta p-5 md:p-15">
       <ScrollToTop />
-      <SakuraPetals petalCount={50} color1="text-carolina" color2="text-viridian" />
+      <SakuraPetals
+        petalCount={50}
+        color1="text-carolina"
+        color2="text-viridian"
+      />
       <HtmlBcg />
       <NavPage
         iconColor="text-seashell"
         overlayClassName="bg-thulian text-softblack"
       />
 
-      <h2 className="gallery-title text-seashell text-right self-end h2-fluid font-extrabold mb-5 mt-15">
+      <h2 className="gallery-title h2-fluid mb-5 mt-15 self-end text-right font-extrabold text-seashell">
         Gallery
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-full">
-        {galleryItems.map(({ id, name, image }) => (
-          <div key={id} className="gallery-item w-full uppercase">
+      <div className="gallery-item grid w-full h-full grid-cols-1 gap-4 md:grid-cols-2">
+        {galleryItems.map(({ id, name, image },index) => (
+          <div key={id} className="w-full uppercase">
             <img
-              className="object-cover object-center aspect-[3/2] md:aspect-[4/3] rounded-xl shadow-xl"
               src={image}
-              loading="eager"
               alt={name}
+              className="aspect-[3/2] rounded-xl object-cover object-center shadow-xl md:aspect-[4/3]"
+              loading={index < 2 ? "eager" : "lazy"}
             />
-            <p className="text-softblack text-s md:text-lg ml-2">{name}</p>
+            <p className="ml-2 text-s text-softblack md:text-lg">{name}</p>
           </div>
         ))}
       </div>

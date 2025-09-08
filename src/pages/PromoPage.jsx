@@ -3,8 +3,6 @@ import SakuraPetals from "../styles/SakuraPetals";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger,useGSAP);
-
 import {
   FaLeaf,
   FaCocktail,
@@ -15,6 +13,9 @@ import {
   FaAppleAlt,
 } from "react-icons/fa";
 
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+// ================= Promotions Data =================
 const promotions = [
   {
     id: 1,
@@ -84,10 +85,10 @@ const groupedPromos = daysOfWeek.map((day) => ({
   ),
 }));
 
-// ---------------- PromoPage ----------------
+// ================= PromoPage =================
 const PromoPage = () => {
   useGSAP(() => {
-    // animacja nagłówka
+    // Title animation
     gsap.from(".promo-title", {
       y: -60,
       opacity: 0,
@@ -95,15 +96,16 @@ const PromoPage = () => {
       ease: "power3.out",
     });
   }, []);
+
   useGSAP(() => {
-    // animacja boxów (promo-bar)
+    // Animate promo bars
     gsap.utils.toArray(".promo-bar").forEach((el, i) => {
       gsap.from(el, {
         x: -50,
         opacity: 0,
         duration: 1,
         ease: "power3.out",
-        delay: i * 0.15, // efekt domina
+        delay: i * 0.15,
         scrollTrigger: {
           trigger: el,
           start: "top 85%",
@@ -111,14 +113,15 @@ const PromoPage = () => {
         },
       });
     });
-    // animacja dividerów
+
+    // Animate dividers
     gsap.utils.toArray(".divider").forEach((el, i) => {
       gsap.from(el, {
         scaleX: 0,
         transformOrigin: "left center",
         duration: 2.5,
         ease: "power3.out",
-        delay: i * 0.2, // ten sam efekt domina
+        delay: i * 0.2,
         scrollTrigger: {
           trigger: el,
           start: "top 100%",
@@ -129,20 +132,16 @@ const PromoPage = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-thistle p-15">
+    <section className="min-h-screen bg-thistle p-5 md:p-15">
       <ScrollToTop />
-      <SakuraPetals
-        petalCount={50}
-        color1="text-thulian"
-        color2="text-shocking"
-      />
+      <SakuraPetals petalCount={50} color1="text-thulian" color2="text-shocking" />
       <HtmlBcg />
       <NavPage
         iconColor="text-softblack"
         overlayClassName="bg-seashell text-softblack"
       />
 
-      <h2 className="text-right self-end promo-title h2-fluid font-extrabold text-softblack mb-5 mt-15">
+      <h2 className="promo-title h2-fluid mb-5 mt-15 self-end text-right font-extrabold text-softblack">
         Weekly Promotions
       </h2>
 
@@ -157,7 +156,7 @@ const PromoPage = () => {
 
 export default PromoPage;
 
-// ---------------- PromoBox ----------------
+// ================= PromoBox =================
 const PromoBox = ({ day, promos }) => (
   <div className="promo-bar mb-10 p-2">
     <h3 className="text-2xl md:text-4xl font-bold text-softblack">{day}</h3>
@@ -166,22 +165,21 @@ const PromoBox = ({ day, promos }) => (
       promos.map(({ id, promotion, info, icon }) => (
         <div
           key={id}
-          className="text-softblack text-s md:text-s flex flex-col items-start mt-2"
+          className="mt-2 flex flex-col items-start text-s text-softblack"
         >
-          {/* tekst promo */}
-          <div className="flex items-center justify-center gap-2 ml-1">
-            {/* ikona */}
-            <p className="text-xs">{icon}</p>
+          {/* Promotion text + icon */}
+          <div className="ml-1 flex items-center gap-2">
+            <span className="text-xs">{icon}</span>
             <h4 className="font-semibold">{promotion}</h4>
           </div>
           <p className="ml-1">{info}</p>
         </div>
       ))
     ) : (
-      <p className="italic text-softblack text-sm">No promos</p>
+      <p className="text-sm italic text-softblack">No promos</p>
     )}
 
-    {/* divider */}
-    <div className="divider h-1 bg-seashell w-full my-2"></div>
+    {/* Divider */}
+    <div className="divider my-2 h-1 w-full bg-seashell"></div>
   </div>
 );

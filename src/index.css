@@ -1,14 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 @import "tailwindcss";
 
+/* ---------------- Base Styles ---------------- */
 @layer utilities {
   body {
     font-family: "Poppins", sans-serif;
   }
 }
 
+/* ---------------- Custom Colors ---------------- */
 @layer utilities {
-  /* 👇 kolory */
+  /* === Seashell === */
   .bg-seashell {
     background-color: hsla(16, 33%, 91%, 1);
   }
@@ -32,29 +34,31 @@
 
   /* === Thistle === */
   .bg-thistle {
-    background-color: hsl(291, 62%, 77%);
+    background-color: hsla(291, 62%, 77%, 1);
   }
   .bg-thistle-80 {
-    background-color: rgba(222, 161, 233, 0.8);
+    background-color: hsla(291, 62%, 77%, 0.8);
   }
   .text-thistle {
-    color: #cdb4dbff;
+    color: hsla(291, 62%, 77%, 1);
   }
+
   /* === Plum Rose === */
   .bg-plumrose {
-    background-color: #904e6c;
+    background-color: hsla(334, 31%, 43%, 1);
   }
   .bg-plumrose-80 {
-    background-color: rgba(144, 78, 108, 0.8);
+    background-color: hsla(334, 31%, 43%, 0.8);
   }
   .text-plumrose {
-    color: #904e6c;
+    color: hsla(334, 31%, 43%, 1);
   }
- 
+
   /* === Mauve === */
   .bg-mauve {
-    background-color: #d0a6c9;
+    background-color: hsla(311, 28%, 73%, 1);
   }
+
   /* === Thulian Pink === */
   .bg-thulian {
     background-color: hsla(333, 78%, 67%, 1);
@@ -65,15 +69,16 @@
   .text-thulian {
     color: hsla(333, 78%, 67%, 1);
   }
+
   /* === Sky Magenta === */
   .bg-skymagenta {
-    background-color: #cd79af;
+    background-color: hsla(321, 47%, 60%, 1);
   }
   .bg-skymagenta-80 {
-    background-color: rgba(205, 121, 175, 0.8);
+    background-color: hsla(321, 47%, 60%, 0.8);
   }
   .text-skymagenta {
-    color: #cd79af;
+    color: hsla(321, 47%, 60%, 1);
   }
 
   /* === Shocking Pink === */
@@ -109,25 +114,26 @@
     color: hsla(167, 35%, 38%, 1);
   }
 
-  /* === Neutral === */
-  .text-softblack {
-    color: #333;
-  }
+  /* === Neutral Colors === */
   .bg-softblack {
     background-color: #333;
   }
+  .text-softblack {
+    color: #333;
+  }
 }
-/* 👇 animacje i hover  */
+
+/* ---------------- Animations & Hover Effects ---------------- */
 @layer utilities {
   @keyframes wind {
-    0%,
-    100% {
+    0%, 100% {
       transform: rotate(-12deg);
     }
     50% {
       transform: rotate(6deg);
     }
   }
+
   .animate-wind {
     animation: wind 4s ease-in-out infinite;
     transform-origin: center bottom;
@@ -135,8 +141,8 @@
 
   .tile-hover {
     transition: transform 0.5s ease, filter 0.5s ease-in-out,
-      z-index 0.01 ease-in-out;
-    will-change: transform, filter, z-index;
+      z-index 0.01s ease-in-out;
+    will-change: transform, filter;
   }
 
   .tile-hover:hover {
@@ -146,22 +152,24 @@
   }
 }
 
-/* 👇 typografia */
+/* ---------------- Typography Utilities ---------------- */
 @layer utilities {
   .text-fluid {
-    font-size: clamp(3rem, 3.75rem, 5vw);
+    font-size: clamp(2rem, 3.75rem, 5vw);
     line-height: 1;
   }
+
   .text-contact-tile-fluid {
     font-size: clamp(2rem, 2.5rem, 4vw);
     line-height: 1;
   }
+
   .h1-fluid {
-    font-size: clamp(3.5rem, 6rem, 5.5vw);
+    font-size: clamp(3rem, 6rem, 5.5vw);
   }
+
   .h2-fluid {
     font-size: clamp(2rem, 4rem, 6vw);
     line-height: 1;
   }
 }
-

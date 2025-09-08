@@ -8,6 +8,7 @@ import {
   FaAppleAlt,
 } from "react-icons/fa";
 
+// ================= Mocked Data =================
 const eventsItem = [
   { id: 1, name: "Jazz Evening Under the Leaves", date: 3 },
   { id: 2, name: "Opera Night with Vegan Wine", date: 6 },
@@ -24,26 +25,15 @@ const eventsItem = [
 
 const promotions = [
   { promotion: "Meatless Monday", icon: <FaLeaf />, days: ["Monday"] },
-  {
-    promotion: "Midweek Boost",
-    icon: <FaAppleAlt />,
-    days: ["Tuesday", "Wednesday"],
-  },
+  { promotion: "Midweek Boost", icon: <FaAppleAlt />, days: ["Tuesday", "Wednesday"] },
   { promotion: "Happy Hours", icon: <FaCocktail />, days: ["Thursday"] },
-  {
-    promotion: "Family Feast",
-    icon: <FaChild />,
-    days: ["Friday", "Saturday"],
-  },
+  { promotion: "Family Feast", icon: <FaChild />, days: ["Friday", "Saturday"] },
   { promotion: "Student Special", icon: <FaGraduationCap />, days: ["Friday"] },
-  {
-    promotion: "Brunch & Coffee Deal",
-    icon: <FaCoffee />,
-    days: ["Friday", "Saturday"],
-  },
+  { promotion: "Brunch & Coffee Deal", icon: <FaCoffee />, days: ["Friday", "Saturday"] },
   { promotion: "Sunday Treat", icon: <FaBirthdayCake />, days: ["Sunday"] },
 ];
 
+// Days mapped to numbers in month
 const dayMap = {
   Monday: [1, 8, 15, 22, 29],
   Tuesday: [2, 9, 16, 23, 30],
@@ -56,9 +46,9 @@ const dayMap = {
 
 const daysInMonth = 30;
 
-// ---------------- Calendar ----------------
+// ================= Calendar Component =================
 const Calendar = ({
-  dayTextClass = "font-bold text-s",
+  dayTextClass = "text-s font-bold",
   eventTextClass = "text-sm",
   iconSize = "text-sm",
   textSize = "text-xs md:text-sm font-semibold",
@@ -69,11 +59,9 @@ const Calendar = ({
 
   return (
     <div className="w-full">
-      {/* Nagłówki dni tygodnia */}
+      {/* Weekday labels */}
       {showWeekdays && (
-        <div
-          className={`hidden md:grid md:grid-cols-7 place-items-center mb-2 ${textSize}`}
-        >
+        <div className={`hidden md:grid md:grid-cols-7 place-items-center mb-2 ${textSize}`}>
           <p>Mon</p>
           <p>Tue</p>
           <p>Wed</p>
@@ -84,7 +72,7 @@ const Calendar = ({
         </div>
       )}
 
-      {/* Siatka kalendarza */}
+      {/* Calendar grid */}
       <div className={containerGrid}>
         {daysArray.map((day) => {
           const event = eventsItem.find((e) => e.date === day);
@@ -95,16 +83,20 @@ const Calendar = ({
           return (
             <div
               key={day}
-              className={`tile-hover z-20 border p-2 rounded-lg shadow-md cursor-pointer ${
-                event ? "bg-thistle-80" : "backdrop-blur-xs"
+              className={`tile-hover border p-2 rounded-lg shadow-md cursor-pointer z-20 ${
+                event ? "bg-thistle-80" : "backdrop-blur-sm"
               }`}
             >
               <p className={dayTextClass}>{day}</p>
+
+              {/* Promo icons */}
               <div className={`flex gap-1 my-1 text-softblack ${iconSize}`}>
                 {promosToday.map((p, idx) => (
                   <span key={idx}>{p.icon}</span>
                 ))}
               </div>
+
+              {/* Event name */}
               {event && (
                 <p className={`${eventTextClass} text-softblack`}>
                   {event.name}

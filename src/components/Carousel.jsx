@@ -4,16 +4,17 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const Carousel = ({ images }) => {
   const [slide, setSlide] = useState(0);
 
-  // Next + Prev
+  // Go to next slide
   const nextSlide = useCallback(() => {
     setSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   }, [images.length]);
 
+  // Go to previous slide
   const prevSlide = () => {
     setSlide((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  // Auto-play
+  // Auto-play every 8s
   useEffect(() => {
     const interval = setInterval(nextSlide, 8000);
     return () => clearInterval(interval);
@@ -31,24 +32,28 @@ const Carousel = ({ images }) => {
         >
           <img
             src={src}
-            alt={`slide-${index}`}
+            alt={`Slide ${index + 1}`}
             className="w-full h-full object-cover"
           />
-          {/* Gradient Overlay */}
+          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/30" />
         </div>
       ))}
 
-      {/* Controls */}
+      {/* Prev button */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 -translate-y-1/2 text-shocking p-2 rounded-full hover:text-thulian transition cursor-pointer z-10"
+        aria-label="Previous slide"
+        className="absolute top-1/2 left-4 -translate-y-1/2 z-10 p-2 rounded-full text-shocking hover:text-thulian transition cursor-pointer"
       >
         <FaChevronLeft />
       </button>
+
+      {/* Next button */}
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 text-shocking p-2 rounded-full hover:text-thulian transition cursor-pointer z-10"
+        aria-label="Next slide"
+        className="absolute top-1/2 right-4 -translate-y-1/2 z-10 p-2 rounded-full text-shocking hover:text-thulian transition cursor-pointer"
       >
         <FaChevronRight />
       </button>
@@ -58,6 +63,8 @@ const Carousel = ({ images }) => {
         {images.map((_, i) => (
           <div
             key={i}
+            role="button"
+            aria-selected={i === slide}
             onClick={() => setSlide(i)}
             className={`w-3 h-3 rounded-full cursor-pointer transition ${
               i === slide ? "bg-seashell" : "bg-shocking"

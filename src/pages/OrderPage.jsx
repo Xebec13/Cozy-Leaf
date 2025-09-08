@@ -50,22 +50,22 @@ const orderItem = {
 // ================= OrderMenu =================
 const OrderMenu = ({ addToCart }) => {
   return (
-    <div className="w-full md:w-2/3 pr-5">
+    <div className="w-full pr-5 md:w-2/3">
       {Object.entries(orderItem).map(([section, items]) => (
         <div key={section} className="mb-8">
-          <h3 className="text-xl font-bold mb-4 capitalize">{section}</h3>
+          <h3 className="mb-4 text-xl font-bold capitalize">{section}</h3>
           <div className="space-y-3">
             {items.map((item) => (
               <div
                 key={item.id}
-                className="order-item flex justify-between items-center border-b pb-2"
+                className="order-item flex items-center justify-between border-b pb-2"
               >
-                <span className="text-softblack font-medium">{item.name}</span>
+                <span className="font-medium text-softblack">{item.name}</span>
                 <div className="flex items-center gap-3">
                   <span className="text-softblack">{item.price}€</span>
                   <button
-                    onClick={() => addToCart(item)}
-                    className="px-3 py-1 bg-plumrose text-seashell rounded-md text-sm cursor-pointer"
+                    onClick={(e) => addToCart(item, e.currentTarget)}
+                    className="px-3 py-1 text-sm text-seashell bg-plumrose rounded-md cursor-pointer"
                   >
                     Add
                   </button>
@@ -84,16 +84,16 @@ const Cart = ({ cart, updateQuantity, removeFromCart }) => {
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
-    <div className="cart w-full md:border-l md:w-1/3 pl-5 ">
-      <h3 className="text-xl font-bold mb-4">Your Cart</h3>
+    <div className="w-full pl-5 md:w-1/3 md:border-l">
+      <h3 className="mb-4 text-xl font-bold">Your Cart</h3>
       {cart.length === 0 ? (
         <p className="italic text-softblack">No items yet.</p>
       ) : (
-        <div className="space-y-4">
+        <div className="cart space-y-4">
           {cart.map((item) => (
             <div
               key={item.id}
-              className="flex justify-between items-center border-b pb-2"
+              className="flex items-center justify-between border-b pb-2"
             >
               <div>
                 <p className="font-semibold">{item.name}</p>
@@ -104,20 +104,20 @@ const Cart = ({ cart, updateQuantity, removeFromCart }) => {
               <div className="grid grid-cols-4 place-items-center">
                 <button
                   onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                  className="px-2 bg-thulian-80 rounded cursor-pointer"
+                  className="px-2 rounded cursor-pointer bg-thulian-80"
                 >
                   -
                 </button>
                 <span>{item.quantity}</span>
                 <button
                   onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                  className="px-2 bg-thulian-80 rounded cursor-pointer"
+                  className="px-2 rounded cursor-pointer bg-thulian-80"
                 >
                   +
                 </button>
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className="ml-2 text-red-800 font-bold cursor-pointer"
+                  className="ml-2 font-bold text-red-800 cursor-pointer"
                 >
                   ✕
                 </button>
@@ -126,7 +126,7 @@ const Cart = ({ cart, updateQuantity, removeFromCart }) => {
           ))}
 
           {/* Total */}
-          <h3 className="text-lg font-bold mt-4">Total: {total}€</h3>
+          <h3 className="mt-4 text-lg font-bold">Total: {total}€</h3>
 
           {/* Place Order Button */}
           <button
@@ -150,7 +150,7 @@ const Cart = ({ cart, updateQuantity, removeFromCart }) => {
 const OrderPage = () => {
   const [cart, setCart] = useState([]);
 
-  // localStorage cart persistence
+  // Load saved cart on mount
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
@@ -158,12 +158,13 @@ const OrderPage = () => {
     }
   }, []);
 
+  // Save cart to localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // Add item + bounce effect
-  const addToCart = (item) => {
+  // Add item + bounce animation for cart & Add button
+  const addToCart = (item, button) => {
     setCart((prev) => {
       const existing = prev.find((p) => p.id === item.id);
       if (existing) {
@@ -174,14 +175,24 @@ const OrderPage = () => {
       return [...prev, { ...item, quantity: 1 }];
     });
 
-    // bounce animacja koszyka
+    // Bounce cart
     gsap.fromTo(
       ".cart",
       { scale: 1 },
       { scale: 1.03, duration: 0.2, yoyo: true, repeat: 1 }
     );
+
+    // Bounce clicked Add button
+    if (button) {
+      gsap.fromTo(
+        button,
+        { scale: 1 },
+        { scale: 1.15, duration: 0.15, ease: "back.out(2)", yoyo: true, repeat: 1 }
+      );
+    }
   };
 
+  // Update item quantity
   const updateQuantity = (id, newQuantity) => {
     if (newQuantity <= 0) {
       removeFromCart(id);
@@ -194,11 +205,12 @@ const OrderPage = () => {
     }
   };
 
+  // Remove item from cart
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  // GSAP intro animations
+  // Intro animations
   useGSAP(() => {
     gsap.from(".order-title", {
       y: -60,
@@ -225,24 +237,20 @@ const OrderPage = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-seashell p-15">
+    <section className="min-h-screen bg-seashell p-5 md:p-15">
       <ScrollToTop />
-      <SakuraPetals
-        petalCount={40}
-        color1="text-plumrose"
-        color2="text-carolina"
-      />
+      <SakuraPetals petalCount={40} color1="text-plumrose" color2="text-carolina" />
       <HtmlBcg />
       <NavPage
         iconColor="text-plumrose"
         overlayClassName="bg-plumrose text-seashell"
       />
 
-      <h2 className="text-right self-end order-title h2-fluid font-extrabold text-softblack mb-5 mt-15">
+      <h2 className="order-title self-end mb-5 mt-15 text-right h2-fluid font-extrabold text-softblack">
         Order
       </h2>
 
-      <div className="flex flex-col md:flex-row gap-5 border backdrop-blur-lg rounded-xl shadow-lg p-5">
+      <div className="flex flex-col gap-5 p-5 border rounded-xl shadow-lg backdrop-blur-lg md:flex-row">
         {/* Menu Section */}
         <OrderMenu addToCart={addToCart} />
 

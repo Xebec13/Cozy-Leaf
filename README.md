@@ -1,12 +1,55 @@
-# React + Vite
+# 🌿 Cozy Leaf — Vegan Restaurant Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, animated, and fully responsive restaurant site built with **React**, **Tailwind CSS**, and **GSAP**. It features a custom animated navigation, menu with tabs, ordering with cart persistence, events calendar with promos, and elegant page transitions.
 
-Currently, two official plugins are available:
+> Built by **Xebec13**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎭 **Entry “curtain” animation** for the landing navigation (GSAP + clip-path)
+- 🧭 **Home tiles navigation** with subtle hovers and wind-leaf detail
+- 🍽️ **Menu with tabs** (starters, mains, desserts, drinks) + soft readability background
+- 🛒 **Order flow with cart** (add/remove, quantity control, **localStorage** persistence)
+- 📅 **Custom Calendar** showing events + icons for daily promos
+- 🎞️ **Gallery** with staggered reveal and responsive grid
+- 📝 **Reservation form** with basic client-side validation
+- 🌸 Global **Sakura petals** ambiance (performance-friendly)
+- 📱 Fully **responsive** across breakpoints
+
+---
+
+## Tech Stack
+
+- **React** + **React Router**
+- **Tailwind CSS** 
+- **GSAP** 
+- **React Icons**
+- Vite (dev server & build)
+
+---
+
+## Screens & GIFs
+
+> All assets are stored locally in this repo. If you don’t have all of these, remove or rename as needed.
+
+### 🏠 Navigation
+![Navigation](./src/assets/gifs/header.gif)
+
+### 📖 Menu 
+![Menu](./src/assets/gifs/menu.gif)
+
+### 🛒 Order 
+![Order](./src/assets/gifs/order.gif)
+
+### 📸 Gallery 
+![Gallery](./src/assets/gifs/gallery.gif)
+
+### 📅 Events 
+![Events](./src/assets/gifs/events.gif)
+
+### ℹ️ About & Contact
+<p align="center">
+  <img src="./about.png" alt="About page" width="45%" />
+  <img src="./contact.png" alt="Contact page" width="45%" />
+</p>

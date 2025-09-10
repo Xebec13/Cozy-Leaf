@@ -1,5 +1,7 @@
 # 🌿 Cozy Leaf — Vegan Restaurant Website
 
+[![Live](https://img.shields.io/badge/Live-Website-pink?style=for-the-badge&logo=vercel&logoColor=green)](https://cl-restaurant.netlify.app)
+
 A modern, animated, and fully responsive restaurant site built with **React**, **Tailwind CSS**, and **GSAP**. It features a custom animated navigation, menu with tabs, ordering with cart persistence, events calendar with promos, and elegant page transitions.
 
 > Built by **Xebec13**.
